@@ -1,11 +1,11 @@
 import React from 'react';
+import Splash from './pages/splashscreen';
 
-import './App.css';
 
 function App() {
   return (
     <div className="App">
-     
+     <Splash /> 
     </div>
   );
 }
