@@ -1,11 +1,13 @@
 import React from 'react';
 import Splash from './pages/splashscreen';
-
+import { Route,Routes} from 'react-router';
 
 function App() {
   return (
     <div className="App">
-     <Splash /> 
+      <Routes> 
+   <Route path='/' element={<Splash />} /> 
+   </Routes>
     </div>
   );
 }
