@@ -1,117 +1,27 @@
 import React from 'react'
 import svg from '../svgs/svg'
-import UserAccount from '../components/handleUser'
-import { Link } from 'react-router-dom'
-type forLoginState = {
-password: string,
-email: string,
-isValidated: boolean,
-passwordError: boolean,
-canLogIn:boolean | null
-}
+// import UserAccount from '../components/handleUser'
+import Header from '../components/header'
+import Form from '../components/form'
 
 
+// class login extends UserAccount {
 
+// constructor(password:string,email:string){
+//     super(password, email)
+// }
 
-
-
-class login extends UserAccount {
-
-constructor(password:string,email:string){
-    super(password, email)
-}
-
-}
+// }
 
 export default class Login extends React.Component {
-    state:forLoginState = {
-        password:'',
-        email: '',
-        isValidated: false,
-        passwordError: false,
-        canLogIn: null
-    }
-    
    
-    validateInfo = (e:React.ChangeEvent<HTMLInputElement>)=> {
-        if(e.target.name === "email"){
-            let regExp = /^[A-Za-z0-9]+@gmail.com$/
-           
-           if(regExp.exec(e.target.value) || e.target.value === '' ) {
-           
-            this.setState({email: e.currentTarget.value, isValidated: false})
-      
-           }
-           else{
-            this.setState({isValidated: true })
-           }
-        }
-       else {
-        let passwordRegExp = /^[\d+A-Za-z]+[#$%!@^&*()_+-=";|]+$/
-        if(passwordRegExp.exec(e.target.value) || e.target.value === '' ) {
-            console.log(passwordRegExp.exec(e.target.value) );
-            this.setState({password: e.currentTarget.value, passwordError: false,canLogIn: true})
-            
-           }
-           else{
-            this.setState({
-                passwordError: true
-            })
-           }
-       }
-       
-    }
-
-    handleLogin = () => {
-    if(this.state.password ! === ''  && this.state.email !== ''){
-        this.setState({canLogIn: true})
-      }
-     else{
-        this.setState({canLogIn: false})
-     }
-
-    }
-
     render(): React.ReactNode {
 
         return(
             <div className='w-[100%] h-[100vh] overflow-hidden bg-[#253334]'>
-            <svg width="199" height="274" viewBox="0 0 199 274" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_1_662)">
-<path d="M55.6026 102.926V102.197C55.6026 101.536 56.0961 101 56.705 101C57.3139 101 57.8074 101.536 57.8074 102.197V102.926C57.8074 103.587 57.3139 104.123 56.705 104.123C56.0961 104.123 55.6026 103.587 55.6026 102.926ZM44.9419 106.668C45.1461 107.053 45.5166 107.267 45.8978 107.267C46.0847 107.267 46.2742 107.216 46.4476 107.107C46.975 106.777 47.1559 106.045 46.8517 105.472L46.5164 104.841C46.2121 104.268 45.5378 104.072 45.0107 104.402C44.4833 104.733 44.3025 105.465 44.6066 106.037L44.9419 106.668ZM66.962 107.107C67.1355 107.216 67.325 107.268 67.512 107.268C67.893 107.268 68.2636 107.053 68.4678 106.669L68.8033 106.038C69.1077 105.465 68.927 104.733 68.3997 104.403C67.8725 104.072 67.1984 104.268 66.8939 104.841L66.5584 105.472C66.254 106.044 66.4346 106.776 66.962 107.107ZM75.4263 115.859C75.6133 115.859 75.8029 115.807 75.9766 115.698L76.5577 115.334C77.0849 115.003 77.2654 114.271 76.9609 113.699C76.6565 113.126 75.9824 112.93 75.4551 113.261L74.874 113.625C74.3468 113.956 74.1663 114.688 74.4706 115.261C74.6748 115.644 75.0452 115.859 75.4263 115.859ZM78.2919 137.088C76.8604 140.169 72.8602 142.239 68.3378 142.239C65.2377 142.239 62.3337 141.268 60.3594 139.605C59.2285 140.447 58.0345 140.989 56.8515 141.155C56.7976 141.162 56.7436 141.165 56.6914 141.164C56.6473 141.164 56.603 141.161 56.5587 141.155C55.3756 140.989 54.1815 140.447 53.0506 139.605C51.0764 141.268 48.1726 142.239 45.0722 142.239C40.5499 142.239 36.5497 140.169 35.1182 137.088C34.9607 136.749 34.9605 136.349 35.1182 136.01C36.1744 133.736 38.5897 132.012 41.6461 131.265C40.0602 128.819 39.481 125.929 40.1993 123.457C40.2873 123.154 40.4823 122.902 40.7413 122.755C42.5526 121.731 44.8499 121.656 47.0861 122.507C47.4181 121.313 47.9405 120.274 48.6483 119.464C48.8905 119.187 49.2402 119.052 49.5889 119.101C50.1672 119.182 50.7479 119.353 51.3228 119.605C52.4891 116.928 54.2084 114.932 56.245 113.917C56.5367 113.772 56.8726 113.772 57.1645 113.917C59.2003 114.931 60.9189 116.926 62.0856 119.601C62.6606 119.351 63.2419 119.182 63.8211 119.101C64.1702 119.052 64.5196 119.187 64.7617 119.464C65.4697 120.274 65.9919 121.313 66.3239 122.507C68.5603 121.656 70.8573 121.731 72.6685 122.755C72.9276 122.902 73.1226 123.154 73.2105 123.456C73.929 125.929 73.3499 128.819 71.7638 131.265C74.8203 132.012 77.2357 133.736 78.2919 136.01C78.4494 136.349 78.4494 136.749 78.2919 137.088ZM64.9441 133.693C66.1412 133.37 67.3304 132.705 68.3779 131.75C70.5175 129.801 71.6381 126.963 71.2231 124.669C69.9282 124.123 68.3131 124.208 66.7215 124.901C66.8744 127.136 66.5032 129.664 65.5863 132.153C65.3914 132.682 65.1765 133.196 64.9441 133.693ZM53.2559 120.771C54.5259 121.753 55.7104 123.111 56.7027 124.737C57.7 123.094 58.8833 121.737 60.1502 120.761C59.3011 118.769 58.0858 117.211 56.7049 116.35C55.3218 117.213 54.1049 118.774 53.2559 120.771ZM45.0318 131.75C46.0792 132.705 47.2688 133.37 48.4661 133.693C48.2336 133.196 48.0189 132.682 47.8237 132.152C46.9069 129.664 46.5358 127.136 46.6885 124.901C45.0969 124.208 43.4818 124.123 42.1867 124.669C41.7717 126.963 42.8923 129.801 45.0318 131.75ZM51.3091 138.018C50.8344 137.5 50.3809 136.927 49.9559 136.308C47.7713 136.268 45.4923 135.296 43.6145 133.584C43.5355 133.512 43.4578 133.44 43.3811 133.366C40.6961 133.727 38.4458 134.929 37.387 136.549C38.6742 138.515 41.7175 139.845 45.072 139.845C47.4535 139.845 49.7312 139.163 51.3091 138.018ZM56.2766 128.993C55.178 126.011 53.3412 123.553 51.4104 122.312C51.3565 122.284 51.3056 122.252 51.2577 122.216C50.8008 121.938 50.3399 121.73 49.8827 121.599C49.4258 122.309 49.1198 123.216 48.9675 124.25C48.9636 124.313 48.955 124.376 48.9417 124.439C48.6873 126.436 48.9908 128.876 49.8705 131.263C50.7584 133.673 52.1282 135.741 53.6403 137.1C53.6756 137.128 53.7096 137.158 53.7423 137.191C54.5616 137.908 55.4201 138.416 56.2643 138.657C57.6193 136.554 57.6463 132.71 56.2766 128.993ZM63.5393 131.263C64.4188 128.876 64.7223 126.438 64.4685 124.441C64.4546 124.377 64.4458 124.312 64.4419 124.248C64.2897 123.215 63.9837 122.308 63.5269 121.599C63.0767 121.727 62.622 121.931 62.1705 122.202C62.1109 122.249 62.0459 122.29 61.9765 122.323C60.4769 123.291 59.0297 124.995 57.9402 127.141C58.0752 127.456 58.203 127.777 58.3234 128.103C59.5735 131.496 59.8092 134.963 59.0854 137.66C59.2821 137.515 59.4775 137.357 59.6706 137.188C59.7012 137.158 59.733 137.129 59.766 137.103C61.2794 135.743 62.6508 133.674 63.5393 131.263ZM76.0228 136.549C74.964 134.929 72.7136 133.727 70.0284 133.366C69.9519 133.44 69.874 133.512 69.7951 133.584C67.9172 135.295 65.6384 136.268 63.4541 136.308C63.029 136.927 62.5756 137.499 62.1008 138.018C63.6788 139.163 65.9567 139.845 68.3378 139.845C71.6922 139.845 74.7356 138.515 76.0228 136.549ZM67.3916 145.402C66.9326 144.968 66.2362 145.02 65.8363 145.519C65.1412 146.385 61.8485 147.606 56.705 147.606C51.5614 147.606 48.2687 146.385 47.5736 145.519C47.1737 145.02 46.4774 144.968 46.0183 145.402C45.5592 145.837 45.5112 146.593 45.9111 147.091C47.6334 149.238 52.8021 150 56.7051 150C60.6081 150 65.7768 149.238 67.4991 147.091C67.8987 146.593 67.8507 145.837 67.3916 145.402ZM42.2132 120.074C42.7988 120.254 43.4081 119.883 43.5732 119.247C45.2211 112.896 50.6211 108.46 56.705 108.46C62.7889 108.46 68.1889 112.896 69.8368 119.247C69.9738 119.775 70.4161 120.12 70.8973 120.12C70.9963 120.12 71.097 120.105 71.1968 120.074C71.7829 119.895 72.124 119.234 71.9589 118.598C70.0445 111.219 63.7718 106.066 56.705 106.066C49.6381 106.066 43.3655 111.219 41.4511 118.598C41.286 119.234 41.6271 119.895 42.2132 120.074ZM56.705 145.977C57.6521 145.977 60.8301 145.867 61.9613 144.456C62.361 143.958 62.3128 143.202 61.8536 142.767C61.3969 142.336 60.7052 142.385 60.3047 142.877C60.0532 143.125 58.7483 143.583 56.705 143.583C54.6612 143.583 53.3562 143.125 53.105 142.876C52.7042 142.385 52.0128 142.336 51.556 142.768C51.0968 143.202 51.0488 143.958 51.4487 144.456C52.5802 145.867 55.7581 145.977 56.705 145.977ZM36.8522 115.334L37.4329 115.698C37.6066 115.807 37.7962 115.859 37.9835 115.859C38.3643 115.859 38.7347 115.644 38.939 115.261C39.2437 114.688 39.0632 113.956 38.5361 113.625L37.9553 113.261C37.4285 112.93 36.7539 113.126 36.4494 113.699C36.1447 114.271 36.3252 115.003 36.8522 115.334Z" fill="white"/>
-</g>
-<defs>
-<filter id="filter0_d_1_662" x="-85" y="-15" width="283.41" height="289" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-<feFlood floodOpacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="60"/>
-<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_662"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_662" result="shape"/>
-</filter>
-</defs>
-</svg>
-           <div className='text-white text-3xl font-semibold mt-[-6rem] mx-6'>
-            Sign in
-           </div>
-           <div className='text-gray-400 py-2 text-xl w-[90%] ml-6'> 
-           Sign in now to acces your excercises and saved music.
-           </div>
-        <form onSubmit={(e)=> e.preventDefault()}> 
-           <input name='email' type='email' className='border-b-2 border-b-zinc-400 outline-0  text-md text-white bg-[#253334] w-[90%] mx-4 mb-4 mt-8' placeholder='Email Address' onChange={(e)=> this.validateInfo(e)} required/>
-           {this.state.isValidated ? <div className='text-emerald-200 mx-4'> Email address not valid </div>: ''}
-
-           <input name="password" type='password' className='border-b-2 border-b-zinc-400 outline-0  text-md text-white bg-[#253334] w-[90%] mx-4 mt-8 mb-2'  placeholder='Password' onChange={(e)=> this.validateInfo(e)} />
-           {this.state.passwordError ? <div className='text-emerald-200 mx-4'>A number or a symbol must be included </div>: ''}
-           <div className='text-end mx-4 text-gray-400 text-sm'>Forgot Password?</div>
-
-          <Link to={ this.state.canLogIn? '/home': ''  }> <button className='w-[90%] bg-[#7C9A92] py-4 mx-4 mt-8 rounded-lg text-white text-2xl relative z-10'onClick={this.handleLogin}> LOGIN </button> </Link> 
-           </form>
-           <div className='text-center mt-4 text-gray-400'>Don’t have an account? <Link to='/signup'>  <span className='text-gray-100 font-medium'> Sign Up </span> </Link></div>
-           <img src="../images/flower.png" alt="" />
-            
-            <div className='relative bottom-20 z-0'> {svg.flower()}</div>
+           <Header content= "Sign In" desc='  Sign in now to acces your excercises and saved music.' /> 
+            <Form buttonContent='LOGIN' isNameVisible = {false} accountType='Sign Up'/>
+            <div className='relative bottom-0  z-0'> {svg.flower()}</div>
              </div>
         )
     }}
