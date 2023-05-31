@@ -24,12 +24,12 @@ export default class Splash extends React.Component {
 </svg>
 </div>
 
-<div className='text-gray-100 text-3xl font-semibold mt-[14rem] text-center w-[100%] absolute'> WELCOME </div>
-<div className='text-gray-100 text-lg text-center font-light mt-[16rem] w-[14rem] absolute'>
+<div className='text-gray-100 text-3xl font-semibold mt-[20rem] text-center w-[100%] absolute'> WELCOME </div>
+<div className='text-gray-100 text-xl text-center font-light mt-[22rem] w-[14rem] absolute'>
     Do meditation. Stay focused. Live a healthy life. </div> 
 
-   <Link to="/login" className='w-[90%] py-4 text-center fixed bottom-20 bg-[#7C9A92] mx-4 absolute mt-[30rem] text-gray-100 text-2xl rounded-xl'>  <button> Login  </button> </Link>
-    <div className='mt-[34rem] fixed bottom-10 text-gray-400'>Don’t have an account? <span className='text-gray-100 font-medium'> Sign Up </span></div>
+   <Link to="/login" className='w-[90%] py-4 text-center bottom-20 bg-[#7C9A92] mx-4 absolute mt-[30rem] text-gray-100 text-2xl rounded-xl'>  <button> Login  </button> </Link>
+    <div className='mt-[34rem] fixed bottom-10 text-gray-400'>Don’t have an account? <Link to="/signup">  <span className='text-gray-100 font-medium'> Sign Up </span> </Link></div>
              </div> 
           
     }}
