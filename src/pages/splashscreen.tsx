@@ -1,6 +1,6 @@
 import React from 'react'
 import '.././style.css'
-
+import { Link } from 'react-router-dom'
 export default class Splash extends React.Component {
     render(): React.ReactNode {
         return <div className='container' id='home'>
@@ -28,7 +28,7 @@ export default class Splash extends React.Component {
 <div className='text-gray-100 text-lg text-center font-light mt-[16rem] w-[14rem] absolute'>
     Do meditation. Stay focused. Live a healthy life. </div> 
 
-    <button className='w-[90%] py-4 fixed bottom-20 bg-[#7C9A92] mx-4 absolute mt-[30rem] text-gray-100 text-lg rounded-xl'> Login  </button> 
+   <Link to="/login" className='w-[90%] py-4 text-center fixed bottom-20 bg-[#7C9A92] mx-4 absolute mt-[30rem] text-gray-100 text-2xl rounded-xl'>  <button> Login  </button> </Link>
     <div className='mt-[34rem] fixed bottom-10 text-gray-400'>Don’t have an account? <span className='text-gray-100 font-medium'> Sign Up </span></div>
              </div> 
           
