@@ -12,10 +12,8 @@ export default class UserAccount {
 
 
 
-  isLoggedIn(){
-   if(this.name){
-    localStorage.setItem('isLoggedIn', JSON.stringify({user: this.name }))
-   }
+  validateUser(){
+   
    
   }
 
