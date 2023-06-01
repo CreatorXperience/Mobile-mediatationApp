@@ -1,0 +1,102 @@
+{
+  "calm": [
+    {
+      "id": 1,
+      "title": "Mediatation 101",
+      "author": "typicode",
+      "desc": "Techniques, Benefits, and a Beginner’s How-To",
+      "artist": "Painting with Passion"
+    },
+    {
+      "id": 2,
+      "title": "Cardio Meditation",
+      "author": "typicode",
+      "desc": "Basics of Yoga for Beginners or Experienced Professionals",
+      "artist": "Painting with Passion"
+    },{
+      "id": 3,
+      "title": "Inner Exploration",
+      "author": "typicode",
+      "desc": "Effortless process enhance your perception",
+      "artist": "Painting with Passion"
+    }
+  ],
+
+  "relax": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1,
+      "title": "Overall wellbeing",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru"
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 2,
+      "title": "Yoga for peace",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru"
+    },
+    {
+      "id": 3,
+      "body": "some comment",
+      "postId": 3,
+      "title": "Yoga for Joy",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru"
+    }
+
+  ],
+  "focus": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 3,
+      "title": "Yoga for Joy",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru"
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 2,
+      "title": "Yoga for peace",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru"
+    },
+    {
+      "id": 3,
+      "title": "Mediatation 101",
+      "author": "typicode",
+      "desc": "Techniques, Benefits, and a Beginner’s How-To",
+      "artist": "Painting with Passion"
+    }
+    
+  ],
+  "anxious": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 2,
+      "title": "Yoga for peace",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru"
+    },
+    {
+      "id": 2,
+      "title": "Cardio Meditation",
+      "author": "typicode",
+      "desc": "Basics of Yoga for Beginners or Experienced Professionals",
+      "artist": "Painting with Passion"
+    }
+  ]
+  
+}
