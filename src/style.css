@@ -18,4 +18,7 @@
     position: absolute;
     margin-top: 6rem;
 }
-
+body {
+    background-color: #253334;
+    height: auto;
+}
