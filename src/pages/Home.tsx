@@ -1,4 +1,4 @@
-import React, { ReactComponentElement, ReactElement, ReactNode ,useMemo} from 'react'
+import React, {ReactNode} from 'react'
 import Top from '../components/Top'
 import svg from '../svgs/svg'
 import Card from '../components/card'
@@ -11,13 +11,17 @@ type forHomeState = {
         desc: string,
         image: string
     }[] | string,
+
+    isNavigationBarOpen: boolean
 }
 export default class Home extends React.Component  {
     state:forHomeState  = {
-        fetchedResources: []
+        fetchedResources: [],
+        isNavigationBarOpen: false
     }
 
 
+  
 
     handleFetch = async (term:string)=> {
         try{
@@ -52,15 +56,9 @@ export default class Home extends React.Component  {
 
     render(){
         return (
-          
-                <div className='container w-[100%]  bg-[#253334]   relative'> 
-            <div className='myNav w-[40%] z-10 h-[120vh] fixed hidden bg-[#253334] text-white'> 
-            <div className='text-xl py-4 px-2'> Home </div>
-            <div className='text-xl py-4 px-2'> Music</div>
-            <div className='text-xl py-4 px-2'> Profile </div>
-            </div>
-
-              <Top />
+            <div className='container w-[100%]  bg-[#253334]   relative'> 
+       
+              <Top/>     
             
                 <div className='absolute w-[100%]  top-[9rem]'> 
                 <div className= ' text-white  text-3xl pl-6'> Welcome back, Dude!</div>
