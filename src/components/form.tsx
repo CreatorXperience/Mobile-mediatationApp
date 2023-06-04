@@ -74,7 +74,7 @@ export default class Form extends React.Component<forFormProps> {
         {this.state.passwordError ? <div className='text-emerald-200 mx-4'>A number or a symbol must be included </div>: ''}
         <div className='text-end mx-4 text-gray-400 text-sm'>Forgot Password?</div>
 
-       <Link to={ this.state.canLogIn? '/home': ''  }> <button className='w-[90%] bg-[#7C9A92] py-4 mx-4 mt-8 rounded-lg text-white text-2xl relative bottom-0  z-10'onClick={this.handleLogin}> {this.props.buttonContent} </button> </Link> 
+       <Link to={this.state.canLogIn? '/home': ''  }> <button className='w-[90%] bg-[#7C9A92] py-4 mx-4 mt-8 rounded-lg text-white text-2xl relative bottom-0  z-10'onClick={this.handleLogin}> {this.props.buttonContent} </button> </Link> 
        <Link  className='text-center mt-4 z-10 relative  text-gray-400' to={this.props.accountType === 'Sign Up'? '/signup': '/login'}> <div>Don’t have an account?  <span className='text-gray-100 font-medium'> {this.props.accountType} </span> </div></Link>
         </form>
        )
