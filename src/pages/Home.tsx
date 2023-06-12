@@ -1,10 +1,9 @@
-import React, { ReactNode, useContext } from "react";
+import React from "react";
 import Top from "../components/Top";
 import svg from "../svgs/svg";
 import Card from "../components/card";
 import Footer from "../components/footer";
-import { Repository } from "../App";
-import { forContext, forProduct } from "../type";
+import {forProduct } from "../type";
 
 
 export default class Home extends React.Component<forProduct> {
