@@ -1,11 +1,7 @@
 import React,{ReactElement} from 'react'
 export type forProduct = {
-    fetchedResources: {
-        id: string,
-        title: string,
-        desc: string,
-        image: string
-    }[]
+        data:forHomeState,
+        Refetch: (term: string, e?: React.MouseEvent<HTMLDivElement, MouseEvent> | undefined) => Promise<void>
 }
 
 export type forHomeState = {

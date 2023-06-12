@@ -50,7 +50,7 @@ export default class Top extends React.Component {
             </div>
 
             <div ref={this.ref} className={`w-[50%] top-0 z-10 py-4  h-[120vh] fixed ${this.state.isClicked? '': 'hidden'}  bg-[#fcfcfc] text-black`}> 
-      <Link to="/play"><div> {svg.darkLogo()}  </div>  <div className='text-xl py-4 px-2 text-center'>  Home </div> </Link>
+     <div> {svg.darkLogo()}  </div>   <Link to="/home"> <div className='text-xl py-4 px-2 text-center'>  Home </div> </Link>
     <Link to="/music"><div className='text-xl py-4 px-2 text-center'> Music </div>  </Link> 
          <Link to="/profile"> </Link> <div className='text-xl py-4 px-2 text-center'> Profile </div>
             </div> 

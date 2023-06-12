@@ -11,7 +11,7 @@ import { forContext } from "./type";
 export const Repository = createContext<forContext | null>(null);
 export default class App extends React.Component {
   state: forHomeState = {
-    fetchedResources: [],
+    fetchedResources: '',
     isNavigationBarOpen: false,
   };
 
@@ -19,19 +19,15 @@ export default class App extends React.Component {
     return { Item: this.state.fetchedResources, Refetch: this.handleFetch };
   };
 
-  handleFetch = useCallback(
-    async (term: string, e?: React.MouseEvent<HTMLDivElement>) => {
-      e?.stopPropagation()
-      let response = HandleFetch(term);
+  handleFetch = async (term: string, e?: React.MouseEvent<HTMLDivElement>) => {
+      e?.stopPropagation();
+      let response = await  HandleFetch(term);
       if (typeof response !== "string") {
         this.setState({ fetchedResources: response });
       }
-    },
-    []
-  );
-
+    }
   componentDidMount() {
-    this.handleFetch("calm");
+    setTimeout(() => this.handleFetch("calm"), 5000);
   }
 
   render() {
@@ -42,7 +38,7 @@ export default class App extends React.Component {
             <Route path="/" element={<Splash />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<Home data ={this.state} Refetch={this.handleFetch}/>} />
           </Routes>
         </Repository.Provider>
       </div>
