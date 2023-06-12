@@ -8,9 +8,8 @@ import { forContext } from "../type";
 
 
 const Home = () =>  {
-    let { Item, Refetch } = useContext(Repository) as forContext;
-    
-  const renderData = (): ReactNode => {
+let { Item, Refetch } = useContext(Repository) as forContext;
+  const renderData = ()=> {
     let CardComponent;
     if (typeof Item !== "string") {
       CardComponent = Item.map((datas) => {

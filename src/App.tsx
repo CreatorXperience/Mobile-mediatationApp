@@ -16,7 +16,7 @@ export default class App extends React.Component {
   };
 
   value = () => {
-    return { Item: this.state.fetchedResources, Refetch: this.handleFetch };
+    return {Item: this.state.fetchedResources, Refetch: this.handleFetch };
   };
 
   handleFetch = useCallback(
@@ -31,7 +31,7 @@ export default class App extends React.Component {
   );
 
   componentDidMount() {
-    this.handleFetch("calm");
+    setTimeout(()=> this.handleFetch("calm"),3000 )  
   }
 
   render() {
