@@ -1,4 +1,12 @@
 import React,{ReactElement} from 'react'
+export type forProduct = {
+    fetchedResources: {
+        id: string,
+        title: string,
+        desc: string,
+        image: string
+    }[]
+}
 
 export type forHomeState = {
     fetchedResources: {
@@ -45,3 +53,13 @@ export type forSVG = {
     profile: ()=> ReactElement
  }
 
+
+ export type forContext = {
+    Item: {
+        id: string,
+        title: string,
+        desc: string,
+        image: string
+    }[] |string,
+    Refetch: (term: string,e?:React.MouseEvent<HTMLDivElement>)=> void
+ }
