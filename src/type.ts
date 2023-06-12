@@ -9,7 +9,8 @@ export type forHomeState = {
         id: string,
         title: string,
         desc: string,
-        image: string
+        image: string,
+        music: string
     }[] | string,
 
     isNavigationBarOpen: boolean
@@ -55,7 +56,8 @@ export type forSVG = {
         id: string,
         title: string,
         desc: string,
-        image: string
+        image: string,
+        music: string
     }[] |string,
     Refetch: (term: string,e?:React.MouseEvent<HTMLDivElement>)=> void
  }

@@ -1,4 +1,4 @@
-import React, { createContext, useCallback } from "react";
+import React, { createContext} from "react";
 import Splash from "./pages/splashscreen";
 import { Route, Routes } from "react-router";
 import Login from "./pages/login";
