@@ -11,7 +11,7 @@ import { forContext } from "./type";
 export const Repository = createContext<forContext | null>(null);
 export default class App extends React.Component {
   state: forHomeState = {
-    fetchedResources: [],
+    fetchedResources: '',
     isNavigationBarOpen: false,
   };
 
@@ -27,7 +27,7 @@ export default class App extends React.Component {
       }
     }
   componentDidMount() {
-    setTimeout(() => this.handleFetch("calm"), 3000);
+    setTimeout(() => this.handleFetch("calm"), 5000);
   }
 
   render() {

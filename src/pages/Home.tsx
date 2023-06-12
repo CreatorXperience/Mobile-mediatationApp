@@ -17,13 +17,16 @@ export default class Home extends React.Component<forProduct> {
         return <Card key={datas.id} Datas={datas} />;
       });
     }
+    else {
+      return <Card key={''}/ >
+    }
     return CardComponent;
   };
 
   render(){
 
     return (
-      <div className="container w-[100%]  bg-[#253334]   relative">
+      <div className="container w-[100%]  bg-[#253334]  relative">
         <Top />
 
         <div
