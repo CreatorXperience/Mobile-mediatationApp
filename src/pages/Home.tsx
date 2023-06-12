@@ -5,6 +5,7 @@ import Card from '../components/card'
 import axios from 'axios'
 import Footer from '../components/footer'
 import { forHomeState } from '../type'
+import { HandleFetch } from '../services/product'
 
 export default class Home extends React.Component  {
     state:forHomeState  = {
@@ -13,16 +14,8 @@ export default class Home extends React.Component  {
     }
 
     handleFetch = async (term:string,e?: React.MouseEvent<HTMLDivElement>)=> {
-        try{
-            let response = await    axios.get(`http://localhost:8080/${term}`)
-            this.setState({fetchedResources: response.data})
-            e?.stopPropagation()
-
-        }
-        catch(e){
-           this.setState({fetchedResources: 'an error has occured'})
-        }
-    
+      let  response = HandleFetch(term)
+    this.setState({fetchedResources: response})
     }
 
     componentDidMount() {
