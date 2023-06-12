@@ -4,21 +4,23 @@ import svg from "../svgs/svg";
 import Card from "../components/card";
 import Footer from "../components/footer";
 import { Repository } from "../App";
-import { forContext } from "../type";
+import { forContext, forProduct } from "../type";
 
 
-const Home = () =>  {
-let { Item, Refetch } = useContext(Repository) as forContext;
-  const renderData = ()=> {
+export default class Home extends React.Component<forProduct> {
+
+   renderData = ()=> {
     let CardComponent;
-    if (typeof Item !== "string") {
-      CardComponent = Item.map((datas) => {
+    let {data,Refetch} = this.props
+    if (typeof data.fetchedResources !== "string") {
+      CardComponent = data.fetchedResources.map((datas) => {
         return <Card key={datas.id} Datas={datas} />;
       });
     }
     return CardComponent;
   };
 
+  render(){
 
     return (
       <div className="container w-[100%]  bg-[#253334]   relative">
@@ -34,7 +36,7 @@ let { Item, Refetch } = useContext(Repository) as forContext;
           </div>
 
           <div className="container w-[100%]  flex justify-around mt-4">
-            <div className="w-[18%]" onClick={(e) => Refetch("calm", e)}>
+            <div className="w-[18%]" onClick={(e) => this.props.Refetch("calm", e)}>
               <div className="w-[100%] rounded-3xl bg-gray-100 py-4 flex justify-center">
                 {svg.calm()}
               </div>
@@ -46,7 +48,7 @@ let { Item, Refetch } = useContext(Repository) as forContext;
             <div className="w-[18%]">
               <div
                 className="w-[100%] rounded-3xl bg-gray-100 py-4 flex justify-center"
-                onClick={() => Refetch("relax")}
+                onClick={() => this.props.Refetch("relax")}
               >
                 {svg.relax()}
               </div>
@@ -58,7 +60,7 @@ let { Item, Refetch } = useContext(Repository) as forContext;
             <div className="w-[18%]">
               <div
                 className="w-[100%] rounded-3xl bg-gray-100 py-4 flex justify-center"
-                onClick={() => Refetch("focus")}
+                onClick={() => this.props.Refetch("focus")}
               >
                 {svg.focus()}
               </div>
@@ -70,7 +72,7 @@ let { Item, Refetch } = useContext(Repository) as forContext;
             <div className="w-[18%]">
               <div
                 className="w-[100%] rounded-3xl bg-gray-100 py-4 flex justify-center"
-                onClick={() => Refetch("anxious")}
+                onClick={() => this.props.Refetch("anxious")}
               >
                 {svg.relax()}
               </div>
@@ -80,11 +82,13 @@ let { Item, Refetch } = useContext(Repository) as forContext;
             </div>
           </div>
 
-          <div className="mb-20">{renderData()}</div>
+          <div className="mb-20">{this.renderData()}</div>
         </div>
 
         <Footer playIcon={true} musicIcon={false} profileIcon={false} />
       </div>
     );
   }
-export default Home
+
+  }
+
