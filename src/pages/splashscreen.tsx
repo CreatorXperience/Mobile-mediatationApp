@@ -28,7 +28,7 @@ export default class Splash extends React.Component {
 <div className='text-gray-100 text-xl text-center font-light mt-[22rem] w-[14rem] absolute'>
     Do meditation. Stay focused. Live a healthy life. </div> 
 
-   <Link to="/login" className='w-[90%] py-4 text-center bottom-20 bg-[#7C9A92] mx-4 absolute mt-[30rem] text-gray-100 text-2xl rounded-xl'>  <button> Login  </button> </Link>
+   <Link to="/login" className='w-[90%] py-4 text-center bottom-20 bg-[#7C9A92] mx-4 absolute mt-[30rem] text-gray-100 text-2xl rounded-xl'>  <button> Join us </button> </Link>
     <div className='mt-[34rem] fixed bottom-10 text-gray-400'>Don’t have an account? <Link to="/signup">  <span className='text-gray-100 font-medium'> Sign Up </span> </Link></div>
              </div> 
           

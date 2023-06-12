@@ -1,18 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-type forLoginState = {
-    password: string,
-    email: string,
-    isValidated: boolean,
-    passwordError: boolean,
-    canLogIn:boolean | null,
-    storeName: string
-}
-    type forFormProps = {
-        isNameVisible?: boolean,
-        buttonContent: string,
-        accountType: string
-    }
+import { forLoginState } from '../type'
+import { forFormProps } from '../type'
 
 export default class Form extends React.Component<forFormProps> {
     state:forLoginState = {
@@ -25,13 +14,14 @@ export default class Form extends React.Component<forFormProps> {
     } 
 
     handleLogin = () => {
-        if(this.state.password ! === ''  && this.state.email !== ''){
+        if(this.state.password !== ''  && this.state.email !== ''){
             this.setState({canLogIn: true})
           }
-         else{
+         else if(this.state.password !== '' && this.state.email === ''){
             this.setState({canLogIn: false})
          }
-    
+         else if(this.state.password === '' && this.state.email !== '')
+         this.setState({canLogIn: false})
         } 
 
     validateInfo = (e:React.ChangeEvent<HTMLInputElement>)=> {
