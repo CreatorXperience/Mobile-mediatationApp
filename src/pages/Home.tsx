@@ -6,26 +6,21 @@ import Footer from "../components/footer";
 import { Repository } from "../App";
 import { forContext } from "../type";
 
-let { Item, Refetch } = useContext(Repository) as forContext;
-export default class Home extends React.Component {
-Item= Item
-Refetch = Refetch
-    constructor(props:{}){
-        super(props)
-        this.Item  = Item
-        this.Refetch = Refetch
-    }
-  renderData = (): ReactNode => {
+
+const Home = () =>  {
+    let { Item, Refetch } = useContext(Repository) as forContext;
+    
+  const renderData = (): ReactNode => {
     let CardComponent;
-    if (typeof this.Item !== "string") {
-      CardComponent = this.Item.map((datas) => {
+    if (typeof Item !== "string") {
+      CardComponent = Item.map((datas) => {
         return <Card key={datas.id} Datas={datas} />;
       });
     }
     return CardComponent;
   };
 
-  render() {
+
     return (
       <div className="container w-[100%]  bg-[#253334]   relative">
         <Top />
@@ -86,11 +81,11 @@ Refetch = Refetch
             </div>
           </div>
 
-          <div className="mb-20">{this.renderData()}</div>
+          <div className="mb-20">{renderData()}</div>
         </div>
 
         <Footer playIcon={true} musicIcon={false} profileIcon={false} />
       </div>
     );
   }
-}
+export default Home
