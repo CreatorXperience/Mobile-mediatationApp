@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import { forHomeState } from "./type";
 import { HandleFetch } from "./services/product";
 import { forContext } from "./type";
+import Play from "./pages/play";
 
 export const Repository = createContext<forContext | null>(null);
 export default class App extends React.Component {
@@ -39,6 +40,7 @@ export default class App extends React.Component {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Home data ={this.state} Refetch={this.handleFetch}/>} />
+            <Route path="/play/:term/:id" element ={<Play />} />
           </Routes>
         </Repository.Provider>
       </div>

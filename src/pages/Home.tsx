@@ -4,6 +4,7 @@ import svg from "../svgs/svg";
 import Card from "../components/card";
 import Footer from "../components/footer";
 import {forProduct } from "../type";
+import { Link } from "react-router-dom";
 
 
 export default class Home extends React.Component<forProduct> {
@@ -13,7 +14,7 @@ export default class Home extends React.Component<forProduct> {
     let {data,Refetch} = this.props
     if (typeof data.fetchedResources !== "string") {
       CardComponent = data.fetchedResources.map((datas) => {
-        return <Card key={datas.id} Datas={datas} />;
+        return  <Card key={datas.id} Datas={datas} />; 
       });
     }
     else {
@@ -21,6 +22,8 @@ export default class Home extends React.Component<forProduct> {
     }
     return CardComponent;
   };
+
+  
 
   render(){
 

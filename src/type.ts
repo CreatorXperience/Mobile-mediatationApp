@@ -11,6 +11,7 @@ export type forHomeState = {
         desc: string,
         image: string,
         music: string
+        cat: string,
     }[] | string,
 
     isNavigationBarOpen: boolean
@@ -47,7 +48,11 @@ export type forSVG = {
     playIcon: ()=> ReactElement,
     darkLogo: ()=> ReactElement,
     darkMusic: ()=> ReactElement,
-    profile: ()=> ReactElement
+    profile: ()=> ReactElement,
+    pause: ()=> ReactElement,
+    wave:()=> ReactElement,
+    next:()=> ReactElement,
+    repeat:()=> ReactElement
  }
 
 
@@ -61,3 +66,11 @@ export type forSVG = {
     }[] |string,
     Refetch: (term: string,e?:React.MouseEvent<HTMLDivElement>)=> void
  }
+
+ export type forPlayState = {
+    id: string,
+    title: string,
+    desc: string,
+    image: string,
+    music: string
+  }
