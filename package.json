@@ -11,6 +11,7 @@
     "@types/react": "^18.2.7",
     "@types/react-dom": "^18.2.4",
     "axios": "^1.4.0",
+    "howler": "^2.2.3",
     "json-server": "^0.17.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,6 +21,7 @@
     "react-scripts": "5.0.1",
     "tailwindcss": "^3.3.2",
     "typescript": "^4.9.5",
+    "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -52,6 +54,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/howler": "^2.2.7",
     "css": "^3.0.0",
     "tailwind": "^4.0.0"
   }
