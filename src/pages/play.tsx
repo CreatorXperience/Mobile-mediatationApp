@@ -1,26 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Top from "../components/Top";
 import { useParams } from "react-router";
 import { HandleSingleFetch } from "../services/product";
-import { forPlayState } from "../type";
+import { Tcontext, forPlayState } from "../type";
 import svg from "../svgs/svg";
 import Footer from "../components/footer";
 // @ts-ignore
 import Music from "../music/audi.mp3";
 import { Howl } from "howler";
+import { Repository } from "../App";
 
 const Play = () => {
   const [data, setData] = useState<forPlayState | null>(null);
   const [isPlaying, setisPlaying] = useState(false);
-  const music = new Howl({
-    src: [Music],
-    volume: 0.2,
-    loop: true,
-  });
 
   const { term, id } = useParams();
 
   useEffect(() => {
+    if (data) {
+      const music = new Howl({
+        src: [data?.music],
+        volume: 0.2,
+        loop: true,
+      });
+      music.play();
+    }
     const FetchValue = async () => {
       if (term && id) {
         let response = await HandleSingleFetch(term, id);
@@ -32,12 +36,14 @@ const Play = () => {
     FetchValue();
   }, []);
 
+  const { current, Item } = useContext(Repository) as Tcontext;
+
   const handlePlayMusic = () => {
-    if (music.playing()) {
-      music.pause();
-    } else {
-      music.play();
-    }
+    // if (music.playing()) {
+    //   // music.pause();
+    // } else {
+    //   // music.play();
+    // }
     console.log("isplaying");
   };
 

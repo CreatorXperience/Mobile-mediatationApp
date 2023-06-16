@@ -20,7 +20,7 @@ export type Thome = {
     | string;
 
   isNavigationBarOpen: boolean;
-  currentlyPlaying: (music: string) => string[];
+  currentlyPlaying: number;
 };
 
 export type forFooter = {
@@ -62,7 +62,7 @@ export type forSVG = {
   play: () => ReactElement;
 };
 
-export type forContext = {
+export type Tcontext = {
   Item:
     | {
         id: string;
@@ -73,6 +73,8 @@ export type forContext = {
       }[]
     | string;
   Refetch: (term: string, e?: React.MouseEvent<HTMLDivElement>) => void;
+  playNow: (param: number) => void;
+  current: number;
 };
 
 export type forPlayState = {

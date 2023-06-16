@@ -11,8 +11,8 @@ export default class Home extends React.Component<forProduct> {
     let CardComponent;
     let { data, Refetch } = this.props;
     if (typeof data.fetchedResources !== "string") {
-      CardComponent = data.fetchedResources.map((datas) => {
-        return <Card key={datas.id} Datas={datas} />;
+      CardComponent = data.fetchedResources.map((datas, index) => {
+        return <Card key={datas.id} Datas={datas} index={index} />;
       });
     } else {
       return <Card />;

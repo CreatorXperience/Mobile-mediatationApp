@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useMemo } from "react";
 import Splash from "./pages/splashscreen";
 import { Route, Routes } from "react-router";
 import Login from "./pages/login";
@@ -6,22 +6,25 @@ import Signup from "./pages/signup";
 import Home from "./pages/Home";
 import { Thome } from "./type";
 import { HandleFetch } from "./services/product";
-import { forContext } from "./type";
+import { Tcontext } from "./type";
 import Play from "./pages/play";
 
-export const Repository = createContext<forContext | null>(null);
+export const Repository = createContext<Tcontext | null>(null);
 export default class App extends React.Component {
   state: Thome = {
     fetchedResources: "",
     isNavigationBarOpen: false,
-    currentlyPlaying: (music: string) => [music],
+    currentlyPlaying: 0,
   };
 
   value = () => {
     return {
       Item: this.state.fetchedResources,
       Refetch: this.handleFetch,
-      playNow: this.state.currentlyPlaying,
+      playNow: (num: number) => {
+        this.setState({ currentlyPlaying: num });
+      },
+      current: this.state.currentlyPlaying,
     };
   };
 
@@ -38,6 +41,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.currentlyPlaying);
     return (
       <div className="App">
         <Repository.Provider value={this.value()}>
