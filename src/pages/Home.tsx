@@ -3,30 +3,24 @@ import Top from "../components/Top";
 import svg from "../svgs/svg";
 import Card from "../components/card";
 import Footer from "../components/footer";
-import {forProduct } from "../type";
+import { forProduct } from "../type";
 import { Link } from "react-router-dom";
 
-
 export default class Home extends React.Component<forProduct> {
-
-   renderData = ()=> {
+  renderData = () => {
     let CardComponent;
-    let {data,Refetch} = this.props
+    let { data, Refetch } = this.props;
     if (typeof data.fetchedResources !== "string") {
       CardComponent = data.fetchedResources.map((datas) => {
-        return  <Card key={datas.id} Datas={datas} />; 
+        return <Card key={datas.id} Datas={datas} />;
       });
-    }
-    else {
-      return <Card key={''}/ >
+    } else {
+      return <Card />;
     }
     return CardComponent;
   };
 
-  
-
-  render(){
-
+  render() {
     return (
       <div className="container w-[100%]  bg-[#253334]  relative">
         <Top />
@@ -41,7 +35,10 @@ export default class Home extends React.Component<forProduct> {
           </div>
 
           <div className="container w-[100%]  flex justify-around mt-4">
-            <div className="w-[18%]" onClick={(e) => this.props.Refetch("calm", e)}>
+            <div
+              className="w-[18%]"
+              onClick={(e) => this.props.Refetch("calm", e)}
+            >
               <div className="w-[100%] rounded-3xl bg-gray-100 py-4 flex justify-center">
                 {svg.calm()}
               </div>
@@ -94,6 +91,4 @@ export default class Home extends React.Component<forProduct> {
       </div>
     );
   }
-
-  }
-
+}

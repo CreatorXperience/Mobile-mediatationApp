@@ -5,18 +5,21 @@ import { HandleSingleFetch } from "../services/product";
 import { forPlayState } from "../type";
 import svg from "../svgs/svg";
 import Footer from "../components/footer";
-import {Howl,Howler} from "howler"
-import  "../music/audi.mp3"
-import useSound from "use-sound";
+// @ts-ignore
+import Music from "../music/audi.mp3";
+import { Howl } from "howler";
+
 const Play = () => {
   const [data, setData] = useState<forPlayState | null>(null);
- 
-  const [play, { pause, duration, sound }] = useSound("../music/audi.mp3");
- 
+  const [isPlaying, setisPlaying] = useState(false);
+  const music = new Howl({
+    src: [Music],
+    volume: 0.2,
+    loop: true,
+  });
 
- 
-  
   const { term, id } = useParams();
+
   useEffect(() => {
     const FetchValue = async () => {
       if (term && id) {
@@ -30,13 +33,16 @@ const Play = () => {
   }, []);
 
   const handlePlayMusic = () => {
-play()
-    console.log("isplaying")
+    if (music.playing()) {
+      music.pause();
+    } else {
+      music.play();
+    }
+    console.log("isplaying");
   };
 
   return (
     <div className="relative">
-
       <Top />
       <div className="flex justify-center w-[100%]">
         <img
@@ -102,12 +108,12 @@ play()
           </div>
           <div className="w-[100%] px-4 mt-6 flex justify-center">
             <div className="flex mt-8 mx-4">
-        
               {svg.next()} {svg.next()}
             </div>
-            <div onClick={handlePlayMusic}>  {svg.pause()} </div>
+            <div onClick={handlePlayMusic}>
+              {isPlaying ? svg.pause() : svg.play()}
+            </div>
             <div className="flex mx-4 mt-8">
-           
               {svg.next()} {svg.next()}
             </div>
           </div>
