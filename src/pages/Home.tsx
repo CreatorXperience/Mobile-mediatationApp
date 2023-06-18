@@ -3,10 +3,9 @@ import Top from "../components/Top";
 import svg from "../svgs/svg";
 import Card from "../components/card";
 import Footer from "../components/footer";
-import { forProduct } from "../type";
-import { Link } from "react-router-dom";
+import { Tproduct } from "../type";
 
-export default class Home extends React.Component<forProduct> {
+export default class Home extends React.Component<Tproduct> {
   renderData = () => {
     let CardComponent;
     let { data, Refetch } = this.props;

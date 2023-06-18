@@ -1,5 +1,5 @@
-import React, { ReactElement } from "react";
-export type forProduct = {
+import React, { ReactElement, SetStateAction } from "react";
+export type Tproduct = {
   data: Thome;
   Refetch: (
     term: string,
@@ -20,16 +20,15 @@ export type Thome = {
     | string;
 
   isNavigationBarOpen: boolean;
-  currentlyPlaying: number;
 };
 
-export type forFooter = {
+export type Tfooter = {
   playIcon: boolean;
   musicIcon: boolean;
   profileIcon: boolean;
 };
 
-export type forLoginState = {
+export type TLogin = {
   password: string;
   email: string;
   isValidated: boolean;
@@ -38,13 +37,13 @@ export type forLoginState = {
   storeName: string;
 };
 
-export type forFormProps = {
+export type TFormProps = {
   isNameVisible?: boolean;
   buttonContent: string;
   accountType: string;
 };
 
-export type forSVG = {
+export type Tsvg = {
   flower: () => ReactElement;
   navIcon: () => ReactElement;
   logo: () => ReactElement;
@@ -73,14 +72,28 @@ export type Tcontext = {
       }[]
     | string;
   Refetch: (term: string, e?: React.MouseEvent<HTMLDivElement>) => void;
-  playNow: (param: number) => void;
-  current: number;
+  play: () => void;
+  pause: () => void;
+  isPlaying: boolean;
+  setisPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  stop: () => void;
 };
 
-export type forPlayState = {
+export type Tforplay = {
   id: string;
   title: string;
   desc: string;
   image: string;
   music: string;
+};
+
+export type Tprops = {
+  Datas?: {
+    id: string;
+    title: string;
+    desc: string;
+    image: string;
+    cat: string;
+  };
+  index?: number;
 };

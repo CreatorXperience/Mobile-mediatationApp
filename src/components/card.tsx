@@ -1,25 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import svg from "../svgs/svg";
 import { Link } from "react-router-dom";
-import { Repository } from "../App";
-import { Tcontext } from "../type";
-type forProps = {
-  Datas?: {
-    id: string;
-    title: string;
-    desc: string;
-    image: string;
-    cat: string;
-  };
-  index?: number;
-};
-const Card = ({ Datas, index }: forProps) => {
-  const { playNow } = useContext(Repository) as Tcontext;
-
-  const handlePlayNow = () => {
-    if (index !== undefined) playNow(index);
-  };
-
+import { Tprops } from "../type";
+const Card = ({ Datas, index }: Tprops) => {
   return (
     <div>
       {!Datas ? (
@@ -47,10 +30,7 @@ const Card = ({ Datas, index }: forProps) => {
 
             <div className="w-[80%] font-semibold text-sm">{Datas?.desc}</div>
 
-            <Link
-              onClick={() => handlePlayNow()}
-              to={`/play/${Datas.cat}/${Datas.id}`}
-            >
+            <Link to={`/play/${Datas.cat}/${Datas.id}`}>
               <button className="w-[50%] flex justify-center  bg-[#253334] text-white py-2 mt-4 my-2 rounded-md">
                 Play Now <div className="mt-2 ml-2"> {svg.playIcon()}</div>
               </button>

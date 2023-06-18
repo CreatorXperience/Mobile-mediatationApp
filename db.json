@@ -19,7 +19,8 @@
       "artist": "Painting with Passion",
       "image": "https://i.pinimg.com/564x/b8/31/e1/b831e1eecb32c74822f1d6929ea2d15f.jpg",
       "music": "./src/music/unlock-me-149058.mp3"
-    },{
+    },
+    {
       "cat": "calm",
       "id": 3,
       "title": "Inner Exploration",
@@ -68,7 +69,6 @@
       "image": "https://i.pinimg.com/564x/b1/2a/9a/b12a9a2241e436ea362ac96bdf5a5d74.jpg",
       "music": "./src/music/unlock-me-149058.mp3"
     }
-
   ],
   "focus": [
     {
@@ -105,7 +105,6 @@
       "image": "https://i.pinimg.com/564x/e6/f6/d2/e6f6d213896898a64e733cf390fcf921.jpg",
       "music": "./src/music/unlock-me-149058.mp3"
     }
-    
   ],
   "anxious": [
     {
@@ -131,5 +130,4 @@
       "music": "./src/music/unlock-me-149058.mp3"
     }
   ]
-  
 }
