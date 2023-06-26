@@ -11,9 +11,13 @@ import useSound from "use-sound";
 import Music from "./music/audi.mp3";
 import { useEffect } from "react";
 import useFetch from "./hooks/Fetch";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { QueryClient, QueryClientProvider } from "react-query";
+import FetchWithQuery from "./pages/Query";
 
 export const Repository = createContext<Tcontext | null>(null);
 
+const Client = new QueryClient();
 const App = () => {
   const [play, { pause, stop, duration }] = useSound(Music);
   const [isPlaying, setisPlaying] = useState(false);
@@ -37,20 +41,24 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      <Repository.Provider value={value()}>
-        <Routes>
-          <Route path="/" element={<Splash />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/home"
-            element={<Home data={state} Refetch={Refetch} />}
-          />
-          <Route path="/play/:term/:id" element={<Play />} />
-        </Routes>
-      </Repository.Provider>
-    </div>
+    <QueryClientProvider client={Client}>
+      <div className="App">
+        <Repository.Provider value={value()}>
+          <Routes>
+            <Route path="/" element={<Splash />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/home"
+              element={<Home data={state} Refetch={Refetch} />}
+            />
+            <Route path="/play/:term/:id" element={<Play />} />
+            <Route path="/query" element={<FetchWithQuery />} />
+          </Routes>
+        </Repository.Provider>
+      </div>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+    </QueryClientProvider>
   );
 };
 export default App;

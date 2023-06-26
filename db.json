@@ -45,6 +45,7 @@
       "image": "https://i.pinimg.com/564x/30/54/19/30541928020c470be599d16f2f3a8df4.jpg",
       "music": "./src/music/unlock-me-149058.mp3"
     },
+
     {
       "cat": "relax",
       "id": 2,
@@ -67,6 +68,19 @@
       "desc": "powerful practice that nurtures physical wellbeing",
       "artist": "SahdGuru",
       "image": "https://i.pinimg.com/564x/b1/2a/9a/b12a9a2241e436ea362ac96bdf5a5d74.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+
+    {
+      "cat": "relax",
+      "id": 4,
+      "body": "some comment",
+      "postId": 1,
+      "title": "Testing",
+      "author": "typicode",
+      "desc": "Testing practice that nurtures physical wellbeing",
+      "artist": "SahdGuru",
+      "image": "https://i.pinimg.com/564x/30/54/19/30541928020c470be599d16f2f3a8df4.jpg",
       "music": "./src/music/unlock-me-149058.mp3"
     }
   ],
