@@ -39,9 +39,10 @@ const FetchWithQuery = () => {
     // refetchOnWindowFocus: true,
     // refetchInterval: 3000,
     // refetchIntervalInBackground: true,
-    refetchInterval: () => (onSuccess(data) ? 3000 : false),
+    // refetchInterval: 5000,
     onSuccess,
     onError,
+    enabled: false,
   });
 
   if (isError) {
@@ -60,7 +61,7 @@ const FetchWithQuery = () => {
     <>
       <div>
         <h2 className="text-white font-2xl font-medium"> Query Data </h2>
-        <button>refetch</button>
+        <button onClick={() => refetch()}>refetch</button>
         {data?.map((data) => {
           return (
             <>
