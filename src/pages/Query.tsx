@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 type Terror = {
   message: string;
@@ -18,7 +19,16 @@ const fetchQuery = async () => {
   return data;
 };
 
+type TUser<T> = {
+  data: T;
+  name: T;
+  age: string;
+};
+
+// TODO: implement typescript type checking with generic
+// FIXME: make state use generic type checking
 const FetchWithQuery = () => {
+  // const [state, setState] = useState<TUser>();
   const onSuccess = (data: any) => {
     if (data.length === 4) {
       return false;
@@ -40,9 +50,11 @@ const FetchWithQuery = () => {
     // refetchInterval: 3000,
     // refetchIntervalInBackground: true,
     // refetchInterval: 5000,
-    onSuccess,
-    onError,
-    enabled: false,
+    // onSuccess,
+    // onError,
+    // enabled: false,
+    // staleTime: 10000,
+    // cacheTime: 10000,
   });
 
   if (isError) {
@@ -62,6 +74,10 @@ const FetchWithQuery = () => {
       <div>
         <h2 className="text-white font-2xl font-medium"> Query Data </h2>
         <button onClick={() => refetch()}>refetch</button>
+        <h1 className="text-white font-2xl font-bold">
+          {" "}
+          <Link to="/"> Home </Link>
+        </h1>
         {data?.map((data) => {
           return (
             <>
