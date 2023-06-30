@@ -97,3 +97,14 @@ export type Tprops = {
   };
   index?: number;
 };
+
+export type TData = {
+  artist: string;
+  author: string;
+  cat: string;
+  desc: string;
+  id: number;
+  image: string;
+  music: string;
+  title: string;
+};

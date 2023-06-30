@@ -14,6 +14,7 @@ import useFetch from "./hooks/Fetch";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { QueryClient, QueryClientProvider } from "react-query";
 import FetchWithQuery from "./pages/Query";
+import Sample from "./components/Sample";
 
 export const Repository = createContext<Tcontext | null>(null);
 
@@ -54,6 +55,7 @@ const App = () => {
             />
             <Route path="/play/:term/:id" element={<Play />} />
             <Route path="/query" element={<FetchWithQuery />} />
+            <Route path="/sample" element={<Sample />} />
           </Routes>
         </Repository.Provider>
       </div>

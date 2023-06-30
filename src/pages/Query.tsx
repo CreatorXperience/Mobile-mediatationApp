@@ -54,7 +54,8 @@ const FetchWithQuery = () => {
     // onError,
     // enabled: false,
     // staleTime: 10000,
-    // cacheTime: 10000,
+    // // cacheTime: 10000,
+    //FIXME:  select: (data)=> (data.map((dat:Tdata)=> dat.music))
   });
 
   if (isError) {
