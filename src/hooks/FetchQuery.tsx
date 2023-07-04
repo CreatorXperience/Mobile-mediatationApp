@@ -30,9 +30,11 @@ const Fetcher = () => {
   return (
     <div>
       <Link to="/query">Next page</Link>
-      {data?.map((data: Tdata) => {
-        return <li className="text-white text-2xl">{data.title}</li>;
-      })}
+      <ul>
+        {data?.map((data: Tdata) => {
+          return <li className="text-white text-2xl">{data.title}</li>;
+        })}
+      </ul>
     </div>
   );
 };
