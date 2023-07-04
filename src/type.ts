@@ -108,3 +108,15 @@ export type TData = {
   music: string;
   title: string;
 };
+
+export type Terror = {
+  message: string;
+};
+export type Tdata = {
+  id: string;
+  title: string;
+  desc: string;
+  image: string;
+  music: string;
+  cat: string;
+};

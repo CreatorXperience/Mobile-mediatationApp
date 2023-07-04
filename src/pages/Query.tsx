@@ -2,18 +2,8 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Tdata, Terror } from "../type";
 
-type Terror = {
-  message: string;
-};
-type Tdata = {
-  id: string;
-  title: string;
-  desc: string;
-  image: string;
-  music: string;
-  cat: string;
-};
 const fetchQuery = async () => {
   let { data } = await axios.get<Tdata[]>(`http://localhost:8080/relax`);
   return data;

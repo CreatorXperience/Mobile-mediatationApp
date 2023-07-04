@@ -1,36 +1,32 @@
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
 import { TData } from "../type";
 
 const Sample = () => {
   const [data, setData] = useState<TData[] | null>();
 
-  const fetch = async () => {
-    try {
-      const response = await axios.get("http://localhost:8080/calm1");
-      setData(response.data);
-    } catch (e: any) {
-      console.log(e.message);
-    }
-  };
+  // const fetch = async () => {
+  //   try {
+  //     // const response = await axios.get("http://localhost:8080/calm");
+  //     // setData(response.data);
+  //   } catch (e: any) {
+  //     console.log(e.message);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetch();
-  }, []);
+  // useEffect(() => {
+  //   fetch();
+  // }, []);
 
   return (
     <div className="text-white text-lg font-2xl font-bold">
-      {" "}
-      Music
       <div>Music</div>
-      <ul>
+      {/* <ul>
         {data?.map((content: TData) => {
           return <li> {content.title}</li>;
         })}
-      </ul>
-      ;
+      </ul> */}
     </div>
   );
 };
-
 export default Sample;
