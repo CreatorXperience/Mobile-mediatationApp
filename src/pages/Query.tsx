@@ -63,6 +63,7 @@ const FetchWithQuery = () => {
   return (
     <>
       <div>
+        <Link to="/Fetch"> Fetch </Link>
         <h2 className="text-white font-2xl font-medium"> Query Data </h2>
         <button onClick={() => refetch()}>refetch</button>
         <h1 className="text-white font-2xl font-bold">
