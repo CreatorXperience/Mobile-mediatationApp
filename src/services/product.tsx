@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useQuery } from "react-query";
+// import { useQuery } from "react-query";
 export async function HandleFetch(term: string) {
   try {
     let response = await axios.get(`http://localhost:8080/${term}`);

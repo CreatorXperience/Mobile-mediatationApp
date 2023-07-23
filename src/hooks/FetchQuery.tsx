@@ -3,12 +3,13 @@ import axios from "axios";
 import { Tdata } from "../type";
 import { Link } from "react-router-dom";
 const getData = async () => {
-  let response = await axios.get<Tdata[]>("http://localhost:8080/calm1 ");
+  let response = await axios.get<Tdata[]>("http://localhost:8080/calm");
   return response.data;
 };
 const Fetcher = () => {
-  let { data, isLoading, isError } = useQuery("fetch-data", getData, {
+  let { data, isLoading, isError, refetch } = useQuery("fetch-data", getData, {
     cacheTime: 4000,
+    enabled: false,
   });
 
   if (isLoading) {
@@ -29,6 +30,7 @@ const Fetcher = () => {
 
   return (
     <div>
+      <button onClick={() => refetch()}>Fetch</button>
       <Link to="/query">Next page</Link>
       <ul>
         {data?.map((data: Tdata) => {
