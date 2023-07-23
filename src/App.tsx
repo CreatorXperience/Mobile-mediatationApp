@@ -21,7 +21,7 @@ export const Repository = createContext<Tcontext | null>(null);
 
 const Client = new QueryClient();
 const App = () => {
-  const [play, { pause, stop, duration }] = useSound(Music);
+  const [play, { pause, stop }] = useSound(Music);
   const [isPlaying, setisPlaying] = useState(false);
 
   const { Refetch, state } = useFetch();

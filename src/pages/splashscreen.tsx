@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import ".././style.css";
 import { Link } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
@@ -6,6 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const Splash = () => {
   let navigate = useNavigate();
+  useEffect(() => {
+    let Token = localStorage.getItem("token");
+    if (Token) {
+      navigate("/home");
+    }
+  });
   return (
     <div className="container" id="home">
       <div className="svg">
@@ -77,7 +83,7 @@ const Splash = () => {
       <div className="auth-button absolute bottom-20">
         <GoogleLogin
           onSuccess={(credentialResponse) => {
-            console.log(credentialResponse);
+            localStorage.setItem("token", JSON.stringify([200]));
             navigate("/home");
           }}
           onError={() => {
