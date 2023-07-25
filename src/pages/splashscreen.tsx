@@ -1,9 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ".././style.css";
 import { Link } from "react-router-dom";
-import { GoogleLogin } from "@react-oauth/google";
+// import { GoogleLogin } from "@react-oauth/google";
+import GoogleAuth from "../components/GoogleAuth";
 import { useNavigate } from "react-router-dom";
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
+type TProfile = {
+  name: string;
+  picture: string;
+  email: string;
+};
 const Splash = () => {
   let navigate = useNavigate();
   useEffect(() => {
@@ -12,6 +20,45 @@ const Splash = () => {
       navigate("/home");
     }
   });
+
+  const [user, setUser] = useState<{
+    access_token: string;
+  } | null>(null);
+
+  const [profile, setProfile] = useState<TProfile>({
+    name: "",
+    picture: "",
+    email: "",
+  });
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => {
+      // navigate("/home");
+      setUser(codeResponse);
+      console.log(profile.email);
+    },
+    onError: (error) => console.log("Login Failed:", error),
+  });
+
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          setProfile(res.data);
+          console.log("success");
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [user]);
   return (
     <div className="container" id="home">
       <div className="svg">
@@ -81,8 +128,10 @@ const Splash = () => {
         <button> Join us </button>
       </Link>
       <div className="auth-button absolute bottom-20">
-        <GoogleLogin
+        {/* <GoogleLogin
           onSuccess={(credentialResponse) => {
+            console.log(credentialResponse);
+
             localStorage.setItem("token", JSON.stringify([200]));
             navigate("/home");
           }}
@@ -91,6 +140,9 @@ const Splash = () => {
           }}
           useOneTap
         />
+        <GoogleAuth /> */}
+
+        <button onClick={() => login()}>Login</button>
       </div>
       <div className="mt-[34rem] fixed bottom-10 text-gray-400">
         Don’t have an account?
