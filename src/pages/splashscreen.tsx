@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import ".././style.css";
 import { Link } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";

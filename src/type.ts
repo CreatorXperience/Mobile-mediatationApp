@@ -22,6 +22,14 @@ export type Thome = {
   isNavigationBarOpen: boolean;
 };
 
+export type TdataX = {
+  id: string;
+  title: string;
+  desc: string;
+  image: string;
+  music: string;
+  cat: string;
+}[];
 export type Tfooter = {
   playIcon: boolean;
   musicIcon: boolean;

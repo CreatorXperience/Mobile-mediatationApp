@@ -3,22 +3,26 @@ import Top from "../components/Top";
 import svg from "../svgs/svg";
 import Card from "../components/card";
 import Footer from "../components/footer";
-import { Tproduct } from "../type";
+import { TdataX, Tproduct } from "../type";
 
 export default class Home extends React.Component<Tproduct> {
   renderData = () => {
-    let CardComponent;
-    let { data, Refetch } = this.props;
+    let { data } = this.props;
     if (typeof data.fetchedResources !== "string") {
-      CardComponent = data.fetchedResources.map((datas, index) => {
-        return <Card key={datas.id} Datas={datas} index={index} />;
-      });
+      let DisplayData = this.validData(data.fetchedResources);
+      return DisplayData;
     } else {
       return <Card />;
     }
-    return CardComponent;
   };
 
+  validData = (data: TdataX) => {
+    let mappedData = data.map((datas, index) => {
+      return <Card key={datas.id} Datas={datas} index={index} />;
+    });
+
+    return mappedData;
+  };
   render() {
     return (
       <div className="container w-[100%]  bg-[#253334]  relative">
