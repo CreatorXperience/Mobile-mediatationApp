@@ -14,7 +14,7 @@ import useFetch from "./hooks/Fetch";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { QueryClient, QueryClientProvider } from "react-query";
 import FetchWithQuery from "./pages/Query";
-import Sample from "./components/Sample";
+
 import Fetcher from "./hooks/FetchQuery";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 export const Repository = createContext<Tcontext | null>(null);
@@ -57,7 +57,7 @@ const App = () => {
               />
               <Route path="/play/:term/:id" element={<Play />} />
               <Route path="/query" element={<FetchWithQuery />} />
-              <Route path="/sample" element={<Sample />} />
+
               <Route path="/Fetch" element={<Fetcher />} />
             </Routes>
           </Repository.Provider>
