@@ -91,7 +91,7 @@ const Splash = ({ user, profile, changeProfile, changeUser }: TProps) => {
             Login with Google
           </button>
         </div>
-        <div className="text-center w-[100%] mt-2 text-gray-400">
+        <div className="text-center w-[100%] mt-8 text-gray-400">
           Don’t have an account?
           <Link to="/signup">
             <span className="text-gray-100 font-medium"> Sign Up </span>
