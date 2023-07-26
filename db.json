@@ -29,6 +29,84 @@
       "artist": "Painting with Passion",
       "image": "https://i.pinimg.com/564x/f2/93/49/f293492b6b554f191e5e855be5864b4c.jpg",
       "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "calm",
+      "id": 4,
+      "body": "some comment",
+      "postId": 1,
+      "title": "Overall wellbeing",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru",
+      "image": "https://i.pinimg.com/564x/30/54/19/30541928020c470be599d16f2f3a8df4.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "calm",
+      "id": 5,
+      "body": "some comment",
+      "postId": 3,
+      "title": "Yoga for Joy",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru",
+      "image": "https://i.pinimg.com/564x/8a/3e/92/8a3e928309ed6e054d76a4c9d1b53915.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "calm",
+      "id": 6,
+      "title": "Cardio Meditation",
+      "author": "typicode",
+      "desc": "Basics of Yoga for Beginners or Experienced Professionals",
+      "artist": "Painting with Passion",
+      "image": "https://i.pinimg.com/564x/24/a7/9a/24a79a561e11c22ad4ed03299420402e.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "calm",
+      "id": 7,
+      "title": "Mediatation 101",
+      "author": "typicode",
+      "desc": "Techniques, Benefits, and a Beginner’s How-To",
+      "artist": "Painting with Passion",
+      "image": "https://i.pinimg.com/564x/e6/f6/d2/e6f6d213896898a64e733cf390fcf921.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "calm",
+      "id": 8,
+      "body": "some comment",
+      "postId": 2,
+      "title": "Yoga for peace",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru",
+      "image": "https://i.pinimg.com/564x/fa/e1/3a/fae13af28185c88a6e244cd9d92ca758.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "calm",
+      "id": 9,
+      "title": "Inner Exploration",
+      "author": "typicode",
+      "desc": "Effortless process enhance your perception",
+      "artist": "Painting with Passion",
+      "image": "https://i.pinimg.com/564x/f2/93/49/f293492b6b554f191e5e855be5864b4c.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "fcalm",
+      "id": 10,
+      "body": "some comment",
+      "postId": 3,
+      "title": "Yoga for Joy",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru",
+      "image": "https://i.pinimg.com/564x/8a/3e/92/8a3e928309ed6e054d76a4c9d1b53915.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
     }
   ],
 
@@ -82,6 +160,38 @@
       "artist": "SahdGuru",
       "image": "https://i.pinimg.com/564x/30/54/19/30541928020c470be599d16f2f3a8df4.jpg",
       "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "relax",
+      "id": 5,
+      "title": "Cardio Meditation",
+      "author": "typicode",
+      "desc": "Basics of Yoga for Beginners or Experienced Professionals",
+      "artist": "Painting with Passion",
+      "image": "https://i.pinimg.com/564x/b8/31/e1/b831e1eecb32c74822f1d6929ea2d15f.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "relax",
+      "id": 6,
+      "title": "Inner Exploration",
+      "author": "typicode",
+      "desc": "Effortless process enhance your perception",
+      "artist": "Painting with Passion",
+      "image": "https://i.pinimg.com/564x/f2/93/49/f293492b6b554f191e5e855be5864b4c.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "relax",
+      "id": 7,
+      "body": "some comment",
+      "postId": 2,
+      "title": "Yoga for peace",
+      "author": "typicode",
+      "desc": "powerful practice that nurtures physical wellbeing",
+      "artist": "SahdGuru",
+      "image": "https://i.pinimg.com/564x/e6/f6/d2/e6f6d213896898a64e733cf390fcf921.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
     }
   ],
   "focus": [
@@ -118,6 +228,28 @@
       "artist": "Painting with Passion",
       "image": "https://i.pinimg.com/564x/e6/f6/d2/e6f6d213896898a64e733cf390fcf921.jpg",
       "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "focus",
+      "id": 4,
+      "body": "some comment",
+      "postId": 1,
+      "title": "Testing",
+      "author": "typicode",
+      "desc": "Testing practice that nurtures physical wellbeing",
+      "artist": "SahdGuru",
+      "image": "https://i.pinimg.com/564x/30/54/19/30541928020c470be599d16f2f3a8df4.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "focus",
+      "id": 5,
+      "title": "Cardio Meditation",
+      "author": "typicode",
+      "desc": "Basics of Yoga for Beginners or Experienced Professionals",
+      "artist": "Painting with Passion",
+      "image": "https://i.pinimg.com/564x/24/a7/9a/24a79a561e11c22ad4ed03299420402e.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
     }
   ],
   "anxious": [
@@ -141,6 +273,36 @@
       "desc": "Basics of Yoga for Beginners or Experienced Professionals",
       "artist": "Painting with Passion",
       "image": "https://i.pinimg.com/564x/24/a7/9a/24a79a561e11c22ad4ed03299420402e.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "anxious",
+      "id": 3,
+      "title": "Mediatation 101",
+      "author": "typicode",
+      "desc": "Techniques, Benefits, and a Beginner’s How-To",
+      "artist": "Painting with Passion",
+      "image": "https://i.pinimg.com/564x/7e/63/3a/7e633a133c018e72cc2b2d64cdf186dd.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "anxious",
+      "id": 4,
+      "title": "Cardio Meditation",
+      "author": "typicode",
+      "desc": "Basics of Yoga for Beginners or Experienced Professionals",
+      "artist": "Painting with Passion",
+      "image": "https://i.pinimg.com/564x/b8/31/e1/b831e1eecb32c74822f1d6929ea2d15f.jpg",
+      "music": "./src/music/unlock-me-149058.mp3"
+    },
+    {
+      "cat": "anxious",
+      "id": 5,
+      "title": "Inner Exploration",
+      "author": "typicode",
+      "desc": "Effortless process enhance your perception",
+      "artist": "Painting with Passion",
+      "image": "https://i.pinimg.com/564x/f2/93/49/f293492b6b554f191e5e855be5864b4c.jpg",
       "music": "./src/music/unlock-me-149058.mp3"
     }
   ]
