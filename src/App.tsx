@@ -30,7 +30,7 @@ const App = () => {
     access_token: string;
   } | null>(null);
 
-  const [profile, setProfile] = useState<TProfilee>({
+  const [profile, setProfile] = useState<TProfile>({
     name: "",
     picture: "",
     email: "",
