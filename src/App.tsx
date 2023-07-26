@@ -16,13 +16,59 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import FetchWithQuery from "./pages/Query";
 
 import Fetcher from "./hooks/FetchQuery";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 export const Repository = createContext<Tcontext | null>(null);
+
+type TProfile = {
+  name: string;
+  picture: string;
+  email: string;
+};
 
 const Client = new QueryClient();
 const App = () => {
   const [play, { pause, stop }] = useSound(Music);
   const [isPlaying, setisPlaying] = useState(false);
+
+  const [user, setUser] = useState<{
+    access_token: string;
+  } | null>(null);
+
+  const [profile, setProfile] = useState<TProfile>({
+    name: "",
+    picture: "",
+    email: "",
+  });
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => {
+      // navigate("/home");
+      setUser(codeResponse);
+      console.log(profile.email);
+    },
+    onError: (error) => console.log("Login Failed:", error),
+  });
+
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          setProfile(res.data);
+          console.log("success");
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [user]);
 
   const { Refetch, state } = useFetch();
 
@@ -48,7 +94,7 @@ const App = () => {
         <div className="App">
           <Repository.Provider value={value()}>
             <Routes>
-              <Route path="/" element={<Splash />} />
+              <Route path="/" element={<Splash login={login} />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route

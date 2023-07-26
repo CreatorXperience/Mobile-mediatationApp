@@ -7,12 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 
-type TProfile = {
-  name: string;
-  picture: string;
-  email: string;
+type Tprops = {
+  login: () => void;
 };
-const Splash = () => {
+
+const Splash = ({ login }: Tprops) => {
   let navigate = useNavigate();
   useEffect(() => {
     let Token = localStorage.getItem("token");
@@ -21,44 +20,6 @@ const Splash = () => {
     }
   });
 
-  const [user, setUser] = useState<{
-    access_token: string;
-  } | null>(null);
-
-  const [profile, setProfile] = useState<TProfile>({
-    name: "",
-    picture: "",
-    email: "",
-  });
-
-  const login = useGoogleLogin({
-    onSuccess: (codeResponse) => {
-      // navigate("/home");
-      setUser(codeResponse);
-      console.log(profile.email);
-    },
-    onError: (error) => console.log("Login Failed:", error),
-  });
-
-  useEffect(() => {
-    if (user) {
-      axios
-        .get(
-          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
-          {
-            headers: {
-              Authorization: `Bearer ${user.access_token}`,
-              Accept: "application/json",
-            },
-          }
-        )
-        .then((res) => {
-          setProfile(res.data);
-          console.log("success");
-        })
-        .catch((err) => console.log(err));
-    }
-  }, [user]);
   return (
     <div className="container" id="home">
       <div className="svg">
@@ -127,22 +88,13 @@ const Splash = () => {
       >
         <button> Join us </button>
       </Link>
-      <div className="auth-button absolute bottom-20">
-        {/* <GoogleLogin
-          onSuccess={(credentialResponse) => {
-            console.log(credentialResponse);
-
-            localStorage.setItem("token", JSON.stringify([200]));
-            navigate("/home");
-          }}
-          onError={() => {
-            console.log("Login Failed");
-          }}
-          useOneTap
-        />
-        <GoogleAuth /> */}
-
-        <button onClick={() => login()}>Login</button>
+      <div className="auth-button absolute bottom-20 w-[100%] flex justify-center">
+        <button
+          className="w-[60%] py-4 rounded-xl text-center text-xl bg-white"
+          onClick={() => login()}
+        >
+          Login with Google
+        </button>
       </div>
       <div className="mt-[34rem] fixed bottom-10 text-gray-400">
         Don’t have an account?
