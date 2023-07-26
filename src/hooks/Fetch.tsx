@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Thome } from "../type";
 
 const useFetch = () => {
-  const [state, setState] = useState<Thome>({
+  const [content, setContent] = useState<Thome>({
     fetchedResources: "",
     isNavigationBarOpen: false,
   });
@@ -15,14 +15,14 @@ const useFetch = () => {
     e?.stopPropagation();
     let response = await HandleFetch(term);
     if (typeof response !== "string") {
-      setState({
+      setContent({
         fetchedResources: response,
         isNavigationBarOpen: false,
       });
     }
   };
 
-  return { state, Refetch };
+  return { content, Refetch };
 };
 
 export default useFetch;

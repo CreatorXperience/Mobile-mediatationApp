@@ -1,24 +1,64 @@
 import React, { useEffect, useState } from "react";
 import ".././style.css";
 import { Link } from "react-router-dom";
-// import { GoogleLogin } from "@react-oauth/google";
-import GoogleAuth from "../components/GoogleAuth";
 import { useNavigate } from "react-router-dom";
-import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import { TokenResponse, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { TProfile } from "../type";
 
-type Tprops = {
-  login: () => void;
+type TProps = {
+  user: {
+    access_token: string;
+  };
+  changeProfile: () => void;
+  profile: {
+    email: string;
+  };
+  changeUser: (
+    user: Omit<TokenResponse, "error" | "error_description" | "error_uri">
+  ) => void;
 };
-
-const Splash = ({ login }: Tprops) => {
+const Splash = ({ user, profile, changeProfile, changeUser }: TProps) => {
   let navigate = useNavigate();
+
   useEffect(() => {
     let Token = localStorage.getItem("token");
     if (Token) {
       navigate("/home");
     }
   });
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => {
+      navigate("/home");
+      changeUser(codeResponse);
+      console.log(profile.email);
+    },
+    onError: (error) => {
+      console.log(error);
+      navigate("/login");
+    },
+  });
+
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          setProfile(res.data);
+          console.log("success");
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [user]);
 
   return (
     <div className="container" id="home">

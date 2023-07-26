@@ -128,3 +128,9 @@ export type Tdata = {
   music: string;
   cat: string;
 };
+
+export type TProfile = {
+  name: string;
+  picture: string;
+  email: string;
+};
