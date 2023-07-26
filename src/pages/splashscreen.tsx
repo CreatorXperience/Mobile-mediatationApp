@@ -62,16 +62,16 @@ const Splash = ({ user, profile, changeProfile, changeUser }: TProps) => {
   }, [user]);
 
   return (
-    <div className="w-[100%] h-[100vh] border-x-2 border-red-600 ">
+    <div className="w-[100%] h-[100vh] ">
       <div className="container w-[100%] flex flex-col" id="home">
-        <div className="border-red-600 w-[100%] flex justify-center border-x-2 border-y-2">
+        <div className=" w-[100%] flex justify-center ">
           <img src={logo} className="w-[60%] xl:w-[20%]" />
         </div>
 
-        <div className="text-gray-100 text-3xl font-semibold  border-x-2 border-y-2 border-red-600 text-center w-[100%]">
+        <div className="text-gray-100 text-3xl font-semibold   text-center w-[100%]">
           WELCOME
         </div>
-        <div className="text-gray-100 text-xl text-center  border-x-2 border-y-2 border-red-600 font-light w-[100%]">
+        <div className="text-gray-100 text-xl text-center   font-light w-[100%]">
           Do meditation. Stay focused. Live a healthy life.
         </div>
 
