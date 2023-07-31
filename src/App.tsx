@@ -17,6 +17,7 @@ import FetchWithQuery from "./pages/Query";
 
 import Fetcher from "./hooks/FetchQuery";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import Spline3d from "./components/spline3d";
 
 export const Repository = createContext<Tcontext | null>(null);
 
@@ -79,6 +80,8 @@ const App = () => {
               <Route path="/query" element={<FetchWithQuery />} />
 
               <Route path="/Fetch" element={<Fetcher />} />
+
+              <Route path="/spline" element={<Spline3d />} />
             </Routes>
           </Repository.Provider>
         </div>

@@ -55,7 +55,7 @@ export default class Top extends React.Component {
 
           <div
             ref={this.ref}
-            className={`w-[50%] top-0 z-10 py-4  h-[120vh] fixed ${
+            className={`w-[50%] top-0 z-10 py-4  left-0 h-[120vh] fixed ${
               this.state.isClicked ? "" : "hidden"
             }  bg-[#fcfcfc] text-black`}
           >
@@ -74,9 +74,7 @@ export default class Top extends React.Component {
             className={`w-[100%] h-[120vh] fixed z-1 bg-gray-900  top-0 opacity-60 ${
               this.state.isClicked ? "" : "hidden"
             } `}
-          >
-            {" "}
-          </div>
+          ></div>
         </div>
       </div>
     );

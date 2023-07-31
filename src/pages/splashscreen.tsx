@@ -62,8 +62,8 @@ const Splash = ({ user, profile, changeProfile, changeUser }: TProps) => {
   }, [user]);
 
   return (
-    <div className="w-[100%] h-[100vh] ">
-      <div className="container w-[100%] flex flex-col" id="home">
+    <div className="w-[100%] h-[100vh]" id="home">
+      <div className="container w-[100%] flex flex-col">
         <div className=" w-[100%] flex justify-center ">
           <img src={logo} className="w-[60%] xl:w-[20%]" />
         </div>
@@ -71,14 +71,14 @@ const Splash = ({ user, profile, changeProfile, changeUser }: TProps) => {
         <div className="text-gray-100 text-3xl font-semibold   text-center w-[100%]">
           WELCOME
         </div>
-        <div className="text-gray-100 text-xl text-center   font-light w-[100%]">
+        <div className="text-gray-100 text-xl text-center mb-4 mt-6 font-light px-10">
           Do meditation. Stay focused. Live a healthy life.
         </div>
 
         <div className="w-[100%] flex justify-center">
           <Link
             to="/login"
-            className="w-[90%] mt-4 py-4 text-center  bg-[#7C9A92]  text-gray-100 text-2xl rounded-xl"
+            className="w-[90%] mt-4 py-4 text-center mb-5  bg-[#7C9A92]  text-gray-100 text-2xl rounded-xl"
           >
             <button> Join us </button>
           </Link>
