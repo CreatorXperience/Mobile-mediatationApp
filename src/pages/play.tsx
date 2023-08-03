@@ -43,19 +43,21 @@ const Play = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="">
       <Top />
-      <div className="flex justify-center w-[100%]">
-        <img
-          src={music?.image}
-          className="container w-[60%] absolute top-[6rem]  rounded-full bg-white "
-        ></img>
+      <div className="flex  flex-col w-[100%]">
+        <div className="w-[100%] mb-5 flex justify-center">
+          <img
+            src={music?.image}
+            className="container w-[60%]  rounded-full bg-white "
+          ></img>
+        </div>
 
-        <div className="absolute top-[24rem] text-center text-white text-3xl font-medium">
+        <div className="text-center w-[100%]  text-white text-3xl font-medium">
           <div>{music?.title}</div>
-          <div className="mt-4">
+          <div className="mt-4 flex justify-center w-[100]">
             <svg
-              width="310"
+              width="200"
               height="50"
               viewBox="0 0 310 50"
               fill="none"

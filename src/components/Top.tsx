@@ -37,7 +37,7 @@ export default class Top extends React.Component {
   render() {
     return (
       <div>
-        <div className="MainBody w-[100%] absolute z-10 text-white pl-5">
+        <div className="MainBody w-[100%]  z-10 text-white pl-5">
           <div className="w-[95%] flex justify-around">
             <div className="container  w-[100%] flex mt-10 ">
               <div onClick={(e) => this.openNav(e)}> {svg.navIcon()} </div>
