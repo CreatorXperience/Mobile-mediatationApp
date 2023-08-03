@@ -53,7 +53,7 @@ export default class Form extends React.Component<TFormProps> {
           <input
             name="text"
             type="email"
-            className="border-b-2 border-b-zinc-400 outline-0  text-md text-white bg-[#253334] w-[90%] mx-4 mb-4 mt-8"
+            className="border-b-2 border-b-zinc-400 outline-0   text-md text-white bg-[#253334] w-[90%] mx-4 mb-4 mt-8"
             placeholder="Name"
             onChange={(e) => this.setState({ storeName: e.target.value })}
             required

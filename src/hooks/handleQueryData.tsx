@@ -1,1 +1,0 @@
-import { Tdata } from "../type";

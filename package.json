@@ -20,7 +20,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-g": "^0.0.5",
-    "react-query": "^3.39.3",
     "react-rc-carousel": "^4.0.5",
     "react-router": "^6.11.2",
     "react-router-dom": "^6.11.2",

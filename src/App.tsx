@@ -11,17 +11,12 @@ import useSound from "use-sound";
 import Music from "./music/audi.mp3";
 import { useEffect } from "react";
 import useFetch from "./hooks/Fetch";
-import { ReactQueryDevtools } from "react-query/devtools";
-import { QueryClient, QueryClientProvider } from "react-query";
-import FetchWithQuery from "./pages/Query";
 
-import Fetcher from "./hooks/FetchQuery";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Spline3d from "./components/spline3d";
 
 export const Repository = createContext<Tcontext | null>(null);
 
-const Client = new QueryClient();
 const App = () => {
   const [play, { pause, stop }] = useSound(Music);
   const [isPlaying, setisPlaying] = useState(false);
@@ -55,38 +50,32 @@ const App = () => {
 
   return (
     <GoogleOAuthProvider clientId="639670905803-qd3r98a52i1sao9bu1s1m9mctfg2g4ut.apps.googleusercontent.com">
-      <QueryClientProvider client={Client}>
-        <div className="App">
-          <Repository.Provider value={value()}>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <WelcomeScreen
-                    user={user}
-                    changeUser={setUser}
-                    changeProfile={setProfile}
-                    profile={profile}
-                  />
-                }
-              />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route
-                path="/home"
-                element={<Home data={content} Refetch={Refetch} />}
-              />
-              <Route path="/play/:term/:id" element={<Play />} />
-              <Route path="/query" element={<FetchWithQuery />} />
+      <div className="App">
+        <Repository.Provider value={value()}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <WelcomeScreen
+                  user={user}
+                  changeUser={setUser}
+                  changeProfile={setProfile}
+                  profile={profile}
+                />
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/home"
+              element={<Home data={content} Refetch={Refetch} />}
+            />
+            <Route path="/play/:term/:id" element={<Play />} />
 
-              <Route path="/Fetch" element={<Fetcher />} />
-
-              <Route path="/spline" element={<Spline3d />} />
-            </Routes>
-          </Repository.Provider>
-        </div>
-        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-      </QueryClientProvider>
+            <Route path="/spline" element={<Spline3d />} />
+          </Routes>
+        </Repository.Provider>
+      </div>
     </GoogleOAuthProvider>
   );
 };
