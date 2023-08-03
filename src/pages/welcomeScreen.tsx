@@ -28,19 +28,23 @@ const WelcomeScreen = ({
   let navigate = useNavigate();
 
   useEffect(() => {
-    let Token = localStorage.getItem("token");
-    if (Token) {
+    let token = localStorage.getItem("token");
+    let parsedToken = JSON.parse(token as string);
+    if (parsedToken) {
       navigate("/home");
+    } else {
+      navigate("/login");
     }
   });
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
       navigate("/home");
+      localStorage.setItem("Token", "200");
       changeUser(codeResponse);
     },
     onError: (error) => {
-      console.log(error);
+      localStorage.setItem("Token", JSON.stringify(null));
     },
   });
 
