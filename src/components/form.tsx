@@ -34,7 +34,6 @@ export default class Form extends React.Component<TFormProps> {
     } else {
       let passwordRegExp = /^.{8}$/;
       if (passwordRegExp.exec(e.target.value)) {
-        console.log(passwordRegExp.exec(e.target.value));
         this.setState({
           password: e.currentTarget.value,
           passwordError: false,
