@@ -44,7 +44,7 @@ const WelcomeScreen = ({
       changeUser(codeResponse);
     },
     onError: (error) => {
-      localStorage.setItem("Token", JSON.stringify(null));
+      console.log(error);
     },
   });
 
