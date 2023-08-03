@@ -26,14 +26,14 @@ export default class Form extends React.Component<TFormProps> {
     if (e.target.name === "email") {
       let regExp = /^.+@.+com$/;
 
-      if (regExp.exec(e.target.value) || e.target.value === "") {
+      if (regExp.exec(e.target.value)) {
         this.setState({ email: e.currentTarget.value, isValidated: false });
       } else {
         this.setState({ isValidated: true });
       }
     } else {
-      let passwordRegExp = /^[\d+A-Za-z]+[#$%!@^&*()_+-=";|]+$/;
-      if (passwordRegExp.exec(e.target.value) || e.target.value === "") {
+      let passwordRegExp = /^.{8}$/;
+      if (passwordRegExp.exec(e.target.value)) {
         console.log(passwordRegExp.exec(e.target.value));
         this.setState({
           password: e.currentTarget.value,
