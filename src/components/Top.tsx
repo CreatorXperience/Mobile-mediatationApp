@@ -42,7 +42,7 @@ export default class Top extends React.Component {
             <div className="container  w-[100%] flex mt-10 ">
               <div onClick={(e) => this.openNav(e)}> {svg.navIcon()} </div>
               <div className="translate-y-[-30%]  flex justify-center">
-                <img src={logo} className="w-[20%] " />
+                <img src={logo} className="w-[20%] " alt="logo" />
               </div>
 
               <img

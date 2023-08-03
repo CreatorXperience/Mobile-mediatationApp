@@ -38,11 +38,9 @@ const WelcomeScreen = ({
     onSuccess: (codeResponse) => {
       navigate("/home");
       changeUser(codeResponse);
-      console.log(profile.email);
     },
     onError: (error) => {
       console.log(error);
-      navigate("/login");
     },
   });
 
