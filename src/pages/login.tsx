@@ -1,5 +1,5 @@
 import React from "react";
-import svg from "../svgs/svg";
+
 import Header from "../components/header";
 import Form from "../components/form";
 

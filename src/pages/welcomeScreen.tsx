@@ -19,7 +19,12 @@ type TProps = {
     user: Omit<TokenResponse, "error" | "error_description" | "error_uri">
   ) => void;
 };
-const Splash = ({ user, profile, changeProfile, changeUser }: TProps) => {
+const WelcomeScreen = ({
+  user,
+  profile,
+  changeProfile,
+  changeUser,
+}: TProps) => {
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -101,4 +106,4 @@ const Splash = ({ user, profile, changeProfile, changeUser }: TProps) => {
     </div>
   );
 };
-export default Splash;
+export default WelcomeScreen;

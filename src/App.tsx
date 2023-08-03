@@ -1,5 +1,5 @@
-import React, { createContext, useState, useMemo } from "react";
-import Splash from "./pages/splashscreen";
+import React, { createContext, useState } from "react";
+import WelcomeScreen from "./pages/welcomeScreen";
 import { Route, Routes } from "react-router";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
@@ -51,7 +51,7 @@ const App = () => {
 
   useEffect(() => {
     setTimeout(() => Refetch("calm"), 2000);
-  }, []);
+  }, [Refetch]);
 
   return (
     <GoogleOAuthProvider clientId="639670905803-qd3r98a52i1sao9bu1s1m9mctfg2g4ut.apps.googleusercontent.com">
@@ -62,7 +62,7 @@ const App = () => {
               <Route
                 path="/"
                 element={
-                  <Splash
+                  <WelcomeScreen
                     user={user}
                     changeUser={setUser}
                     changeProfile={setProfile}
