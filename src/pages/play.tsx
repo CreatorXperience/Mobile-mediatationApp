@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo } from "react";
+import React, { useCallback, useContext, useEffect, useMemo } from "react";
 import Top from "../components/Top";
 import { useParams } from "react-router";
 import { Tcontext } from "../type";
@@ -7,11 +7,10 @@ import Footer from "../components/footer";
 import { Repository } from "../App";
 import useFetchSingleItem from "../hooks/SingleFetch";
 // @ts-ignore
-import Music from "../music/audi.mp3";
 
 const Play = () => {
   const { music, fetchMusic } = useFetchSingleItem();
-  const { play, pause, stop, setisPlaying, isPlaying } = useContext(
+  const { play, pause, setisPlaying, isPlaying } = useContext(
     Repository
   ) as Tcontext;
 
@@ -21,10 +20,18 @@ const Play = () => {
     return { term, id };
   }, [term, id]);
 
-  useEffect(() => {
-    fetchMusic(memoizedValue.term as string, memoizedValue.id as string);
-  }, [term, id]);
+  let Fetcher = useCallback(() => {
+    console.log(memoizedValue.term, memoizedValue.id);
+    return fetchMusic(memoizedValue.term as string, memoizedValue.id as string);
+  }, []);
 
+  useEffect(() => {
+    Fetcher();
+  }, [memoizedValue.term, memoizedValue.id, Fetcher]);
+
+  // useEffect(() => {
+  //   setisPlaying(false);
+  // }, [term, id]);
   const handlePlayMusic = () => {
     if (isPlaying) {
       pause();
@@ -107,7 +114,7 @@ const Play = () => {
             <div onClick={handlePlayMusic}>
               {isPlaying ? svg.pause() : <p className="mt-6"> {svg.play()} </p>}
             </div>
-            <div className="flex mx-4 mt-8">
+            <div className="flex mx-4 mt-8" onClick={() => handlePlayMusic()}>
               {svg.next()} {svg.next()}
             </div>
           </div>

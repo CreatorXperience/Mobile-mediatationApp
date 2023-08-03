@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useCallback, useState } from "react";
 import WelcomeScreen from "./pages/welcomeScreen";
 import { Route, Routes } from "react-router";
 import Login from "./pages/login";
@@ -44,9 +44,13 @@ const App = () => {
     };
   };
 
+  const defaultFetch = useCallback(() => {
+    return Refetch("calm");
+  }, []);
+
   useEffect(() => {
-    setTimeout(() => Refetch("calm"), 2000);
-  }, [Refetch]);
+    setTimeout(() => defaultFetch(), 1);
+  }, []);
 
   return (
     <GoogleOAuthProvider clientId="639670905803-qd3r98a52i1sao9bu1s1m9mctfg2g4ut.apps.googleusercontent.com">

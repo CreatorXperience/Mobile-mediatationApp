@@ -85,7 +85,7 @@ export default class Form extends React.Component<TFormProps> {
         />
         {this.state.passwordError ? (
           <div className="text-emerald-200 mx-4">
-            A number or a symbol must be included{" "}
+            password must complete 8 digits
           </div>
         ) : (
           ""
