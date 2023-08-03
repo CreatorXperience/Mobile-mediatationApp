@@ -5,8 +5,8 @@ let svg: Tsvg = {
   flower() {
     return (
       <svg
-        width="375"
-        height="265"
+        width="100%"
+        // height="100"
         viewBox="0 0 375 265"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

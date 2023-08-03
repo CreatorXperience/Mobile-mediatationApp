@@ -24,7 +24,7 @@ export default class Form extends React.Component<TFormProps> {
 
   validateInfo = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === "email") {
-      let regExp = /^[A-Za-z0-9]+@gmail.com$/;
+      let regExp = /^.+@.+com$/;
 
       if (regExp.exec(e.target.value) || e.target.value === "") {
         this.setState({ email: e.currentTarget.value, isValidated: false });
