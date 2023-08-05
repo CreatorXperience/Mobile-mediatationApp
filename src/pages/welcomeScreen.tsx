@@ -33,7 +33,7 @@ const WelcomeScreen = ({
     if (parsedToken) {
       navigate("/home");
     } else {
-      navigate("/login");
+      // navigate("/login");
     }
   });
 

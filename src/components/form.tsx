@@ -53,7 +53,7 @@ export default class Form extends React.Component<TFormProps> {
           <input
             name="text"
             type="email"
-            className="border-b-2 border-b-zinc-400 outline-0   text-md text-white bg-[#253334] w-[90%] mx-4 mb-4 mt-8"
+            className="border-b-2 border-b-zinc-400 outline-0   text-md text-white bg-default w-[90%] mx-4 mb-4 mt-8"
             placeholder="Name"
             onChange={(e) => this.setState({ storeName: e.target.value })}
             required
@@ -65,7 +65,7 @@ export default class Form extends React.Component<TFormProps> {
         <input
           name="email"
           type="email"
-          className="border-b-2 border-b-zinc-400 outline-0  text-md text-white bg-[#253334] w-[90%] mx-4 mb-4 mt-8"
+          className="border-b-2 border-b-zinc-400 outline-0  text-md text-white bg-default w-[90%] mx-4 mb-4 mt-8"
           placeholder="Email Address"
           onChange={(e) => this.validateInfo(e)}
           required
@@ -79,7 +79,7 @@ export default class Form extends React.Component<TFormProps> {
         <input
           name="password"
           type="password"
-          className="border-b-2 border-b-zinc-400 outline-0  text-md text-white bg-[#253334] w-[90%] mx-4 mt-8 mb-2"
+          className="border-b-2 border-b-zinc-400 outline-0  text-md text-white bg-default w-[90%] mx-4 mt-8 mb-2"
           placeholder="Password"
           onChange={(e) => this.validateInfo(e)}
         />
@@ -97,7 +97,7 @@ export default class Form extends React.Component<TFormProps> {
         <Link to={this.state.canLogIn ? "/home" : ""}>
           {" "}
           <button
-            className="w-[90%] bg-[#7C9A92] py-4 mx-4 mt-8 rounded-lg text-white text-2xl relative bottom-0  z-10"
+            className="w-[90%] bg-[#353535] py-4 mx-4 mt-8 rounded-lg text-white text-2xl relative bottom-0  z-10"
             onClick={this.handleLogin}
           >
             {" "}

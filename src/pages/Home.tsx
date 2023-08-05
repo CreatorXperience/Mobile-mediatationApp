@@ -25,7 +25,7 @@ export default class Home extends React.Component<Tproduct> {
   };
   render() {
     return (
-      <div className="container w-[100%]  bg-[#253334]  relative">
+      <div className="container w-[100%]  bg-default  relative">
         <Top />
 
         <div
@@ -42,7 +42,7 @@ export default class Home extends React.Component<Tproduct> {
               className="w-[18%]"
               onClick={(e) => this.props.Refetch("calm", e)}
             >
-              <div className="w-[100%] rounded-3xl bg-gray-100 py-4 flex justify-center">
+              <div className="w-[100%] rounded-3xl bg-[#353535] btn py-4 flex justify-center">
                 {svg.calm()}
               </div>
               <div className="text-white text-sm  w-[100%] text-center">
@@ -52,7 +52,7 @@ export default class Home extends React.Component<Tproduct> {
 
             <div className="w-[18%]">
               <div
-                className="w-[100%] rounded-3xl bg-gray-100 py-4 flex justify-center"
+                className="w-[100%] rounded-3xl bg-[#353535] btn py-4 flex justify-center"
                 onClick={() => this.props.Refetch("relax")}
               >
                 {svg.relax()}
@@ -64,7 +64,7 @@ export default class Home extends React.Component<Tproduct> {
 
             <div className="w-[18%]">
               <div
-                className="w-[100%] rounded-3xl bg-gray-100 py-4 flex justify-center"
+                className="w-[100%] rounded-3xl bg-[#353535] btn py-4 flex justify-center"
                 onClick={() => this.props.Refetch("focus")}
               >
                 {svg.focus()}
@@ -76,7 +76,7 @@ export default class Home extends React.Component<Tproduct> {
 
             <div className="w-[18%]">
               <div
-                className="w-[100%] rounded-3xl bg-gray-100 py-4 flex justify-center"
+                className="w-[100%] rounded-3xl bg-[#353535] btn py-4 flex justify-center"
                 onClick={() => this.props.Refetch("anxious")}
               >
                 {svg.relax()}

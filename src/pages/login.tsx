@@ -6,7 +6,7 @@ import Form from "../components/form";
 export default class Login extends React.Component {
   render() {
     return (
-      <div className="w-[100%] h-[100vh] bg-[#253334]">
+      <div className="w-[100%] h-[100vh] bg-default">
         <Header
           content="Sign In"
           desc="  Sign in now to acces your excercises and saved music."

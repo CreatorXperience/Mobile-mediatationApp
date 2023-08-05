@@ -37,7 +37,7 @@ export default class Top extends React.Component {
   render() {
     return (
       <div>
-        <div className="MainBody w-[100%]  z-10 text-white pl-5">
+        <div className="MainBody w-[100%] relative  z-10 text-white pl-5">
           <div className="w-[95%] flex justify-around">
             <div className="container  w-[100%] flex mt-10 ">
               <div onClick={(e) => this.openNav(e)}> {svg.navIcon()} </div>
@@ -57,21 +57,30 @@ export default class Top extends React.Component {
             ref={this.ref}
             className={`w-[50%] top-0 z-10 py-4  left-0 h-[120vh] fixed ${
               this.state.isClicked ? "" : "hidden"
-            }  bg-[#fcfcfc] text-black`}
+            }  bg-[#212121] text-black`}
           >
             <div> {svg.darkLogo()} </div>{" "}
             <Link to="/home">
-              <div className="text-xl py-4 px-2 text-center"> Home </div>{" "}
+              <div className="text-xl py-4 px-2 text-white text-center">
+                {" "}
+                Home{" "}
+              </div>{" "}
             </Link>
             <Link to="/music">
-              <div className="text-xl py-4 px-2 text-center"> Music </div>{" "}
+              <div className="text-xl py-4 px-2 text-white text-center">
+                {" "}
+                Music{" "}
+              </div>{" "}
             </Link>
             <Link to="/profile"> </Link>{" "}
-            <div className="text-xl py-4 px-2 text-center"> Profile </div>
+            <div className="text-xl py-4 px-2 text-white text-center">
+              {" "}
+              Profile{" "}
+            </div>
           </div>
 
           <div
-            className={`w-[100%] h-[120vh] fixed z-1 bg-gray-900  top-0 opacity-60 ${
+            className={`w-[100%] h-[120vh]  fixed  z-1 bg-gray-900  top-0 opacity-60 ${
               this.state.isClicked ? "" : "hidden"
             } `}
           ></div>
