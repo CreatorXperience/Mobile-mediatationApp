@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo } from "react";
+import React, { useCallback, useContext, useEffect, useMemo } from "react";
 import Top from "../components/Top";
 import { useParams } from "react-router";
 import { Tcontext } from "../type";
@@ -7,11 +7,10 @@ import Footer from "../components/footer";
 import { Repository } from "../App";
 import useFetchSingleItem from "../hooks/SingleFetch";
 // @ts-ignore
-import Music from "../music/audi.mp3";
 
 const Play = () => {
   const { music, fetchMusic } = useFetchSingleItem();
-  const { play, pause, stop, setisPlaying, isPlaying } = useContext(
+  const { play, pause, setisPlaying, isPlaying } = useContext(
     Repository
   ) as Tcontext;
 
@@ -21,10 +20,18 @@ const Play = () => {
     return { term, id };
   }, [term, id]);
 
-  useEffect(() => {
-    fetchMusic(memoizedValue.term as string, memoizedValue.id as string);
-  }, [term, id]);
+  let Fetcher = useCallback(() => {
+    console.log(memoizedValue.term, memoizedValue.id);
+    return fetchMusic(memoizedValue.term as string, memoizedValue.id as string);
+  }, []);
 
+  useEffect(() => {
+    Fetcher();
+  }, [memoizedValue.term, memoizedValue.id, Fetcher]);
+
+  // useEffect(() => {
+  //   setisPlaying(false);
+  // }, [term, id]);
   const handlePlayMusic = () => {
     if (isPlaying) {
       pause();
@@ -36,19 +43,21 @@ const Play = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="">
       <Top />
-      <div className="flex justify-center w-[100%]">
-        <img
-          src={music?.image}
-          className="container w-[60%] absolute top-[6rem]  rounded-full bg-white "
-        ></img>
+      <div className="flex  flex-col w-[100%]">
+        <div className="w-[100%] mb-5 flex justify-center">
+          <img
+            src={music?.image}
+            className="container w-[60%]  rounded-full bg-white "
+          ></img>
+        </div>
 
-        <div className="absolute top-[24rem] text-center text-white text-3xl font-medium">
+        <div className="text-center w-[100%]  text-white text-3xl font-medium">
           <div>{music?.title}</div>
-          <div className="mt-4">
+          <div className="mt-4 flex justify-center w-[100]">
             <svg
-              width="310"
+              width="200"
               height="50"
               viewBox="0 0 310 50"
               fill="none"
@@ -107,7 +116,7 @@ const Play = () => {
             <div onClick={handlePlayMusic}>
               {isPlaying ? svg.pause() : <p className="mt-6"> {svg.play()} </p>}
             </div>
-            <div className="flex mx-4 mt-8">
+            <div className="flex mx-4 mt-8" onClick={() => handlePlayMusic()}>
               {svg.next()} {svg.next()}
             </div>
           </div>

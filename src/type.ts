@@ -22,6 +22,14 @@ export type Thome = {
   isNavigationBarOpen: boolean;
 };
 
+export type TdataX = {
+  id: string;
+  title: string;
+  desc: string;
+  image: string;
+  music: string;
+  cat: string;
+}[];
 export type Tfooter = {
   playIcon: boolean;
   musicIcon: boolean;
@@ -96,4 +104,33 @@ export type Tprops = {
     cat: string;
   };
   index?: number;
+};
+
+export type TData = {
+  artist: string;
+  author: string;
+  cat: string;
+  desc: string;
+  id: number;
+  image: string;
+  music: string;
+  title: string;
+};
+
+export type Terror = {
+  message: string;
+};
+export type Tdata = {
+  id: string;
+  title: string;
+  desc: string;
+  image: string;
+  music: string;
+  cat: string;
+};
+
+export type TProfile = {
+  name: string;
+  picture: string;
+  email: string;
 };

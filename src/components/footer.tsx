@@ -11,7 +11,7 @@ export default class Footer extends React.Component<Tfooter> {
 
   render() {
     return (
-      <div className="container w-[100%] z-9 justify-evenly h-[10%] py-4 flex fixed bottom-0 px-4 bg-[#253334] shadow-lg">
+      <div className="container w-[100%] z-9 justify-evenly h-[10%] py-4 flex fixed bottom-0 px-4 bg-default shadow-lg">
         <Link to="/home">
           <svg
             width="18"
