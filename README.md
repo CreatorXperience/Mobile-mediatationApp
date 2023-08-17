@@ -14,3 +14,4 @@ Enhance your meditation experience by playing soothing background music directly
 
 
 Transform your meditation practice with Meditate. Discover a path to inner peace and well-being, all within the palm of your hand.
+![mobile (2)](https://github.com/CreatorXperience/Mobile-mediatationApp/assets/124584716/2c4f1e99-8880-4ba1-b311-0afb0eac621e)
