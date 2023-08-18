@@ -28,12 +28,12 @@ const WelcomeScreen = ({
   let navigate = useNavigate();
 
   useEffect(() => {
-    let token = localStorage.getItem("token");
+    let token = localStorage.getItem("Token");
     let parsedToken = JSON.parse(token as string);
     if (parsedToken) {
       navigate("/home");
     } else {
-      // navigate("/login");
+      navigate("/login");
     }
   });
 
